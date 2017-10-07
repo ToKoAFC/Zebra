@@ -9,6 +9,7 @@ namespace Zebra.Database
         public DbSet<DbCompany> Companies { get; set; }
         public DbSet<DbProduct> Products { get; set; }
         public DbSet<DbProductPrice> ProductPrices { get; set; }
+        public DbSet<DbCategory> Categories { get; set; }
 
         public ZebraContext()
             : base("ZebraContext", throwIfV1Schema: false)
@@ -18,6 +19,16 @@ namespace Zebra.Database
         {
             System.Data.Entity.Database.SetInitializer<ZebraContext>(null);
             base.OnModelCreating(builder);
+
+            builder.Entity<DbCategory>()
+                .HasMany(p => p.Products)
+                .WithMany(r => r.Categories)
+                .Map(mc =>
+                {
+                    mc.MapLeftKey("CategoryId");
+                    mc.MapRightKey("ProductId");
+                    mc.ToTable("ProductCategories");
+                });
         }
 
         public static ZebraContext Create()

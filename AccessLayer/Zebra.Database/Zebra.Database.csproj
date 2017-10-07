@@ -73,6 +73,10 @@
     <Compile Include="Migrations\201710072205080_add_product_price.Designer.cs">
       <DependentUpon>201710072205080_add_product_price.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710072223293_add_categories.cs" />
+    <Compile Include="Migrations\201710072223293_add_categories.Designer.cs">
+      <DependentUpon>201710072223293_add_categories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ZebraContext.cs" />
@@ -102,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710072205080_add_product_price.resx">
       <DependentUpon>201710072205080_add_product_price.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710072223293_add_categories.resx">
+      <DependentUpon>201710072223293_add_categories.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
