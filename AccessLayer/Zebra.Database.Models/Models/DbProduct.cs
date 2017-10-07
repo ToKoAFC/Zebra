@@ -11,7 +11,10 @@ namespace Zebra.Database.Models
 {
     public class DbProduct
     {
-
+        public DbProduct()
+        {
+            DbProductPrices = new HashSet<DbProductPrice>();
+        }
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProuductId { get; set; }
 
@@ -27,5 +30,7 @@ namespace Zebra.Database.Models
 
         [ForeignKey("CompanyId")]
         public virtual DbCompany Company { get; set; }
+
+        public virtual ICollection<DbProductPrice> DbProductPrices { get; set; }
     }
 }

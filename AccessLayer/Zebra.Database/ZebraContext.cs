@@ -6,6 +6,10 @@ namespace Zebra.Database
 {
     public class ZebraContext : IdentityDbContext<DbAppUser>
     {
+        public DbSet<DbCompany> Companies { get; set; }
+        public DbSet<DbProduct> Products { get; set; }
+        public DbSet<DbProductPrice> ProductPrices { get; set; }
+
         public ZebraContext()
             : base("ZebraContext", throwIfV1Schema: false)
         {

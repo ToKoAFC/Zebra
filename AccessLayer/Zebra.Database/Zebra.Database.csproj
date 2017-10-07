@@ -69,6 +69,10 @@
     <Compile Include="Migrations\201710071839095_Rename_column_name.Designer.cs">
       <DependentUpon>201710071839095_Rename_column_name.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710072205080_add_product_price.cs" />
+    <Compile Include="Migrations\201710072205080_add_product_price.Designer.cs">
+      <DependentUpon>201710072205080_add_product_price.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ZebraContext.cs" />
@@ -95,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710071839095_Rename_column_name.resx">
       <DependentUpon>201710071839095_Rename_column_name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710072205080_add_product_price.resx">
+      <DependentUpon>201710072205080_add_product_price.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
