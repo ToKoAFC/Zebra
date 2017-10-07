@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Zebra.Database.Models
 {
+    [Table("ProductPrices")]
     public class DbProductPrice
     {
-
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProductPriceId { get; set; }
 

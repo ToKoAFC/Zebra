@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Zebra.Database.Models
 {
+    [Table("AppUsers")]
     public class DbAppUser : IdentityUser
     {
         public DbAppUser()
