@@ -14,6 +14,7 @@ namespace Zebra.Database.Models
         public DbCompany()
         {
             Users = new HashSet<DbAppUser>();
+            Products = new HashSet<DbProduct>();
         }
 
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -41,5 +42,6 @@ namespace Zebra.Database.Models
         public bool IsDeleted { get; set; }
 
         public virtual ICollection<DbAppUser> Users { get; set; }
+        public virtual ICollection<DbProduct> Products { get; set; }
     }
 }
