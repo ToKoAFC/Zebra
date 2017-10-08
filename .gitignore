@@ -3,3 +3,4 @@ bin
 packages
 .vs
 ConnectionStrings.config
+/Presentation/Zebra.Web/Zebra.Web.csproj.user
