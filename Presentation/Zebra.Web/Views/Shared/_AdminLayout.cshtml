@@ -9,10 +9,56 @@
 
 </head>
 <body>
-  
-    <div class="container body-content">
+    <div class="navbar navbar-inverse navbar-fixed-top col-md-12">
+        <div class="container">
+            <div class="navbar-header">
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sidemenu col-md-2">
+        <div class="panel-group" id="accordion">            
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <span class="glyphicon glyphicon-th">
+                        </span>Panel administracyjny
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <span class="glyphicon glyphicon-refresh"></span>@Html.ActionLink("Produkty","Index","AdminProducts")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="glyphicon glyphicon-flash"></span>Promocje
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="glyphicon glyphicon-file"></span>Wyszukaj
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="glyphicon glyphicon-comment text-success"></span>Opinie
+                                <span class="badge">TODO</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-9">
         @RenderBody()
-       
     </div>
 
     @Scripts.Render("~/bundles/jquery")
