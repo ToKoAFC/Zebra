@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>4213ce8a-5a9a-479c-82ce-8149bc45b577</ProjectGuid>
+    <ProjectGuid>{4213CE8A-5A9A-479C-82CE-8149BC45B577}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Zebra.Services</RootNamespace>
@@ -30,24 +30,48 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\Zebra\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="RegisterService.cs" />
+    <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AccessLayer\Zebra.Database.Access\Zebra.Database.Access.csproj">
+      <Project>{C4042A0D-495D-4539-9B7E-7400A5A2A45F}</Project>
+      <Name>Zebra.Database.Access</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AccessLayer\Zebra.Database.Models\Zebra.Database.Models.csproj">
+      <Project>{87814EC7-B22F-416F-83EF-A6F3A2339DDA}</Project>
+      <Name>Zebra.Database.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Presentation\Zebra.ViewModels\Zebra.ViewModels.csproj">
+      <Project>{A879B9C9-1144-414A-A728-EDD5E166ABDE}</Project>
+      <Name>Zebra.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zebra.CoreModels\Zebra.CoreModels.csproj">
+      <Project>{22611468-9FDC-46E7-B6DC-724199C1E256}</Project>
+      <Name>Zebra.CoreModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>

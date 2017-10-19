@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Autofac;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Zebra.Services;
 
 namespace Zebra.Web
 {
@@ -16,6 +14,10 @@ namespace Zebra.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            var builder = new ContainerBuilder();
+            RegisterService.Register(builder, "name=ZebraContext");
+            IoCConfig.SetupIoC(builder);
         }
     }
 }

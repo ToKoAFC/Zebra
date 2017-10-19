@@ -1,64 +1,20 @@
-﻿@{
-    ViewBag.Title = "Index";
-}
-@section Scripts
-{
-<script src="@Url.Content("~/Scripts/bootstrap_treeview/bootstrap-treeview.js")"></script>
-}
+﻿@model Zebra.ViewModels.AdminCategory.VMAdminCategoryIndex
 
-<h2>Index</h2>
-<div class="col-md-12">
-    <div id="tree">
+<div class="row page-header">
+    <div class="col-md-11">
+        <h4 class="headline-title">Zarządzaj kategoriami</h4>
+    </div>
+    <div class="col-md-1">
+        @Html.ActionLink("Dodaj kategorię", "AddNewCategory", "AdminCategory", null, new { @class = "btn btn-default" })
     </div>
 </div>
-
-
-<script>   
-    $(document).ready(function () {
-        var tree = [
-            {
-                text: "Node 1",
-                icon: "glyphicon glyphicon-stop",
-                selectedIcon: "glyphicon glyphicon-stop",
-                color: "#00as00",
-                backColor: "#F3233F",
-                href: "#node-1",
-                selectable: true,
-                state: {
-                    checked: true,
-                    disabled: false,
-                    expanded: true,
-                    selected: true
-                },
-                tags: ['available'],
-                nodes: [
-                    {
-                        text: "Child 1",
-                        nodes: [
-                            {
-                                text: "Grandchild 1"
-                            },
-                            {
-                                text: "Grandchild 2"
-                            }
-                        ]
-                    },
-                    {
-                        text: "Child 2"
-                    }
-                ]
-            },
-            {
-                text: "Parent 3"
-            },
-            {
-                text: "Parent 4"
-            },
-            {
-                text: "Parent 5"
-            }
-        ];
-        $('#tree').treeview({ data: tree });
-    });
-
-</script>
+<div class="panel panel-default">
+    <div class="panel-body">
+        @foreach (var category in Model.Categories)
+        {
+            <div class="row">
+                <p>@category.CategoryName</p>
+            </div>
+        }
+    </div>
+</div>
