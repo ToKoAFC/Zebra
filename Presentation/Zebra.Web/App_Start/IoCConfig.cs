@@ -13,7 +13,8 @@ namespace Zebra.Web
             builder.RegisterFilterProvider();
 
             // register controllers
-            builder.RegisterControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterControllers(Assembly.GetExecutingAssembly())
+                .PropertiesAutowired();
                        
             // Build the container.
             var container = builder.Build();

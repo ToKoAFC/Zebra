@@ -19,9 +19,7 @@ namespace Zebra.Database.Access
 
             builder.RegisterAssemblyTypes(typeof(ProductAccess).Assembly)
                 .Where(t => t.Name.EndsWith("Access") && t.Namespace != null && t.Namespace.StartsWith("Zebra.Database.Access"))
-                .PropertiesAutowired()
-                .AsSelf();
-            
+                .PropertiesAutowired();            
         }
     }
 }

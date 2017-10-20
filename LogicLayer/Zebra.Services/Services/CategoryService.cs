@@ -7,7 +7,7 @@ namespace Zebra.Services
 {
     public class CategoryService
     {
-        private CategoryAccess _categoryAccess { get; set; }
+        public CategoryAccess _categoryAccess { get; set; }
 
         public List<VMCategory> GetCategories()
         {

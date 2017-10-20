@@ -16,8 +16,7 @@ namespace Zebra.Services
             RegisterAccess.Register(builder, nameOrConnectionString);
 
             builder.RegisterAssemblyTypes(typeof(ProductService).Assembly)
-                .Where(t => t.Name.EndsWith("Service") && t.Namespace != null && t.Namespace.StartsWith("Zebra.Services"))
-                
+                .Where(t => t.Name.EndsWith("Service") && t.Namespace != null && t.Namespace.StartsWith("Zebra.Services"))                
                 .PropertiesAutowired();
         }
     }
