@@ -17,7 +17,7 @@ namespace Zebra.Database.Models
 
         public string Name { get; set; }
 
-        public int ParentCategoryId { get; set; }
+        public int? ParentCategoryId { get; set; }
 
         [ForeignKey("ParentCategoryId")]
         public virtual DbCategory ParentCategory { get; set; }

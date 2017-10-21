@@ -220,6 +220,7 @@
     <Content Include="Content\bootstrap_treeview\bootstrap-treeview.css" />
     <Content Include="Content\footable\footable.bootstrap.css" />
     <Content Include="Content\footable\footable.bootstrap.min.css" />
+    <Content Include="Content\material\material.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -287,6 +288,7 @@
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\AdminProducts\Index.cshtml" />
     <Content Include="Views\AdminCategory\Index.cshtml" />
+    <Content Include="Views\AdminCategory\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

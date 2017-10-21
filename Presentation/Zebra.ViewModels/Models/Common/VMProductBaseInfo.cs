@@ -1,6 +1,6 @@
-﻿namespace Zebra.ViewModels
+﻿namespace Zebra.ViewModels.Common
 {
-    public class VMProduct
+    public class VMProductBaseInfo
     {
         public int ProductId { get; set; }
         public string Name { get; set; }

@@ -1,11 +1,11 @@
-﻿@model Zebra.ViewModels.AdminCategory.VMAdminCategoryIndex
+﻿@model Zebra.ViewModels.View.AdminCategory.VMAdminCategoryIndex
 
 <div class="row page-header">
     <div class="col-md-11">
         <h4 class="headline-title">Zarządzaj kategoriami</h4>
     </div>
     <div class="col-md-1">
-        @Html.ActionLink("Dodaj kategorię", "AddNewCategory", "AdminCategory", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Dodaj kategorię", "Create", "AdminCategory", null, new { @class = "btn btn-default" })
     </div>
 </div>
 <div class="panel panel-default">

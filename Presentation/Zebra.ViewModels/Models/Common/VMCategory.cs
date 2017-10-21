@@ -1,4 +1,4 @@
-﻿namespace Zebra.ViewModels.AdminCategory
+﻿namespace Zebra.ViewModels.AdminCategory.Common
 {
     public class VMCategory
     {

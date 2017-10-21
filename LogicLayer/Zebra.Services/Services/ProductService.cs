@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Zebra.Database.Access;
-using Zebra.ViewModels;
+using Zebra.ViewModels.Common;
 
 namespace Zebra.Services
 {
@@ -9,10 +9,10 @@ namespace Zebra.Services
     {
         private ProductAccess _productAccess { get; set; }
 
-        public List<VMProduct> GetProducts()
+        public List<VMProductBaseInfo> GetProducts()
         {
             var coreProducts = _productAccess.GetCoreProduct();
-            return coreProducts.Select(p => new VMProduct
+            return coreProducts.Select(p => new VMProductBaseInfo
             {
                 Description = p.Description,
                 Name = p.Name,

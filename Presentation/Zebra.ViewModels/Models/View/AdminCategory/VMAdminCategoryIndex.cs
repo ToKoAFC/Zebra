@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using Zebra.ViewModels.AdminCategory.Common;
 
-namespace Zebra.ViewModels.AdminCategory
+namespace Zebra.ViewModels.View.AdminCategory
 {
     public class VMAdminCategoryIndex
     {
