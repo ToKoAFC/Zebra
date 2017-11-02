@@ -85,6 +85,10 @@
     <Compile Include="Migrations\201710210555384_nullableCategoryId.Designer.cs">
       <DependentUpon>201710210555384_nullableCategoryId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711012203315_BasePrice.cs" />
+    <Compile Include="Migrations\201711012203315_BasePrice.Designer.cs">
+      <DependentUpon>201711012203315_BasePrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ZebraContext.cs" />
@@ -123,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710210555384_nullableCategoryId.resx">
       <DependentUpon>201710210555384_nullableCategoryId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711012203315_BasePrice.resx">
+      <DependentUpon>201711012203315_BasePrice.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -23,6 +23,8 @@ namespace Zebra.Database.Models
 
         public bool IsDeleted { get; set; }
 
+        public decimal BasePrice { get; set; }
+
         public int CompanyId { get; set; }
 
         [ForeignKey("CompanyId")]

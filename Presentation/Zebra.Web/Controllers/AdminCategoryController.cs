@@ -4,6 +4,7 @@ using Zebra.ViewModels.View.AdminCategory;
 
 namespace Zebra.Web.Controllers
 {
+    [Authorize]
     public class AdminCategoryController : Controller
     {
         public CategoryService _categoryService { get; set; }

@@ -63,6 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Common\VMCategory.cs" />
+    <Compile Include="Models\View\AdminProducts\VMAdminProductsCreate.cs" />
+    <Compile Include="Models\View\AdminProducts\VMAdminProductsIndex.cs" />
     <Compile Include="Models\View\AdminCategory\VMAdminCategoryCreate.cs" />
     <Compile Include="Models\View\AdminCategory\VMAdminCategoryIndex.cs" />
     <Compile Include="Models\Common\VMProductBaseInfo.cs" />

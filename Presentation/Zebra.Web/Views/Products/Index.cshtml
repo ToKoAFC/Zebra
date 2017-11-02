@@ -1,7 +1,23 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿@model List<Zebra.ViewModels.Common.VMProductBaseInfo>
 
-<h2>Index</h2>
+<div class="col-md-12" style="margin-top:60px">
+    @if (Model != null && Model.Any())
+    {
 
+        foreach (var product in Model)
+        {
+            <div class="col-md-3">
+                <div class="product-header" style="background-color:aquamarine">
+                    @product.Name
+                </div>
+                <div class="product-body">
+                    @product.Description
+                </div>
+                <div class="product-footer">
+                    @product.BasePrice
+                    <i class="material-icons">add_shopping_cart</i>
+                </div>
+            </div>
+        }
+    }
+</div>

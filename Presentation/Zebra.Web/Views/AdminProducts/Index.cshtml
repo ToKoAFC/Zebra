@@ -1,6 +1,35 @@
-﻿@{
-    ViewBag.Title = "Index";
-}
+﻿@model Zebra.ViewModels.View.AdminProducts.VMAdminProductsIndex
 
-<h2>Index</h2>
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <thead>
+        <tr>
+            <th class="mdl-data-table__cell--non-numeric">Produkt</th>
+            <th>Opis</th>
+            <th>Cena</th>
+            <th>Kategorie</th>
+            <th>Edytuj</th>
+            <th>Usuń</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric">@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.BasePrice</td>
+                <td>
+                    @foreach(var cat in product.Categories)
+                    {
+                        <span>@cat.CategoryName</span>
+                    }
+                </td>
+                <td><a href="@Url.Action("Edit",new { productId = product.ProductId})"><i class="material-icons">edit</i></a></td>
+                <td><a href="@Url.Action("Delete",new { productId = product.ProductId})"><i class="material-icons" style="color:red">delete</i></a></td>
+            </tr>
+        }
 
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="top: auto;right: 50px;bottom: 50px;left: auto;position: fixed;"><i class="material-icons" style="color:white">add</i></a>

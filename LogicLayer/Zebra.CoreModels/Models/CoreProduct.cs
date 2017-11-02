@@ -1,17 +1,17 @@
-﻿namespace Zebra.CoreModels
+﻿using System.Collections.Generic;
+
+namespace Zebra.CoreModels
 {
     public class CoreProduct
     {
-        public CoreProduct(int productId, string name, string description)
-        {
-            this.ProuductId = productId;
-            this.Name = name;
-            this.Description = description;
-        }
-        public int ProuductId { get; private set; }
+        public int ProuductId { get; set; }
 
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
-        public string Description { get; private set; }
+        public string Description { get; set; }
+
+        public decimal BasePrice { get; set; }
+
+        public List<CoreCategory> Categories { get; set; }
     }
 }
