@@ -295,6 +295,7 @@
     <Content Include="Views\AdminCategory\Create.cshtml" />
     <Content Include="Views\AdminProducts\Create.cshtml" />
     <Content Include="Views\AdminPrice\Index.cshtml" />
+    <Content Include="Views\AdminPrice\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

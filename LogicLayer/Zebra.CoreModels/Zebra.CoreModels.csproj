@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\CoreCategory.cs" />
+    <Compile Include="Models\CoreCategoryDiscount.cs" />
     <Compile Include="Models\CoreUser.cs" />
     <Compile Include="Models\CoreProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
