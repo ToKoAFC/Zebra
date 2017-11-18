@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\DbShop.cs" />
     <Compile Include="Models\DbCategory.cs" />
     <Compile Include="Models\DbFile.cs" />
     <Compile Include="Models\DbProductPrice.cs" />

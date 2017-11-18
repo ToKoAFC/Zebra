@@ -64,9 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Common\VMShop.cs" />
+    <Compile Include="Models\Common\VMGeoLocal.cs" />
     <Compile Include="Models\Common\VMFile.cs" />
     <Compile Include="Models\Common\VMUploadProductFile.cs" />
     <Compile Include="Models\Common\VMCategory.cs" />
+    <Compile Include="Models\View\AdminShop\VMAdminShopIndex.cs" />
     <Compile Include="Models\View\AdminPrice\VMAdminPriceCreate.cs" />
     <Compile Include="Models\View\AdminPrice\VMAdminPriceIndex.cs" />
     <Compile Include="Models\View\AdminProducts\VMAdminProductsCreate.cs" />

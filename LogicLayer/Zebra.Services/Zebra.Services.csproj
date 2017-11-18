@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RegisterService.cs" />
+    <Compile Include="Services\ShopService.cs" />
     <Compile Include="Services\FileService.cs" />
     <Compile Include="Services\PriceService.cs" />
     <Compile Include="Services\CategoryService.cs" />

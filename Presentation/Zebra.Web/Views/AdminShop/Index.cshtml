@@ -1,0 +1,66 @@
+﻿@model Zebra.ViewModels.View.AdminCategory.VMAdminShopIndex
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>VMShop</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop.NIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop.NIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop.Regon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop.Regon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shop.Localization.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shop.Localization.Address)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

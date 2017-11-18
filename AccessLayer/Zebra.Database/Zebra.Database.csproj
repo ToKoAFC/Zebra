@@ -89,6 +89,14 @@
     <Compile Include="Migrations\201711012203315_BasePrice.Designer.cs">
       <DependentUpon>201711012203315_BasePrice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711181831238_addShopInfo.cs" />
+    <Compile Include="Migrations\201711181831238_addShopInfo.Designer.cs">
+      <DependentUpon>201711181831238_addShopInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711181837484_addShopInfo2.cs" />
+    <Compile Include="Migrations\201711181837484_addShopInfo2.Designer.cs">
+      <DependentUpon>201711181837484_addShopInfo2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ZebraContext.cs" />
@@ -130,6 +138,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711012203315_BasePrice.resx">
       <DependentUpon>201711012203315_BasePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711181831238_addShopInfo.resx">
+      <DependentUpon>201711181831238_addShopInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711181837484_addShopInfo2.resx">
+      <DependentUpon>201711181837484_addShopInfo2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

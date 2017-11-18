@@ -2,6 +2,7 @@
 
 namespace Zebra.Web.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         public AdminController()

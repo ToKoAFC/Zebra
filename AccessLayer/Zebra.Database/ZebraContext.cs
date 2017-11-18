@@ -10,6 +10,8 @@ namespace Zebra.Database
         public DbSet<DbProduct> Products { get; set; }
         public DbSet<DbProductPrice> ProductPrices { get; set; }
         public DbSet<DbCategory> Categories { get; set; }
+        public DbSet<DbFile> Files { get; set; }
+        public DbSet<DbShop> Shops { get; set; }
 
         public ZebraContext()
             : base("ZebraContext", throwIfV1Schema: false)

@@ -200,6 +200,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
+    <Compile Include="Controllers\AdminShopController.cs" />
     <Compile Include="Controllers\AdminPriceController.cs" />
     <Compile Include="Controllers\AdminProductsController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -302,6 +303,8 @@
     <Content Include="Views\AdminPrice\Index.cshtml" />
     <Content Include="Views\AdminPrice\Create.cshtml" />
     <Content Include="Views\AdminProducts\UploadFile.cshtml" />
+    <Content Include="Views\AdminShop\Index.cshtml" />
+    <Content Include="Views\AdminShop\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

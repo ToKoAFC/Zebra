@@ -4,6 +4,7 @@ using Zebra.ViewModels.View.AdminPrice;
 
 namespace Zebra.Web.Controllers
 {
+    [Authorize]
     public class AdminPriceController : Controller
     {
         public CategoryService _categoryService { get; set; }

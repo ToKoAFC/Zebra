@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accesses\CategoryAccess.cs" />
+    <Compile Include="Accesses\ShopAccess.cs" />
     <Compile Include="Accesses\FileAccess.cs" />
     <Compile Include="Accesses\PriceAccess.cs" />
     <Compile Include="Accesses\UserAccess.cs" />
