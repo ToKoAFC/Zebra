@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,9 +43,16 @@
   <ItemGroup>
     <Compile Include="Models\CoreCategory.cs" />
     <Compile Include="Models\CoreCategoryDiscount.cs" />
+    <Compile Include="Models\CoreUploadFile.cs" />
     <Compile Include="Models\CoreUser.cs" />
     <Compile Include="Models\CoreProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zebra.Global\Zebra.Global.csproj">
+      <Project>{A7A593B5-C46E-464C-A1AA-A733A87E58D6}</Project>
+      <Name>Zebra.Global</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

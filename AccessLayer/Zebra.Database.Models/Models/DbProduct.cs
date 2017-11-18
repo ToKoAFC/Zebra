@@ -11,6 +11,7 @@ namespace Zebra.Database.Models
         {
             ProductPrices = new HashSet<DbProductPrice>();
             Categories = new HashSet<DbCategory>();
+            Files = new HashSet<DbFile>();
         }
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProuductId { get; set; }
@@ -32,5 +33,6 @@ namespace Zebra.Database.Models
 
         public virtual ICollection<DbProductPrice> ProductPrices { get; set; }
         public virtual ICollection<DbCategory> Categories { get; set; }
+        public virtual ICollection<DbFile> Files { get; set; }
     }
 }

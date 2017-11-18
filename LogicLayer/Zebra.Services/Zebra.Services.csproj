@@ -42,6 +42,7 @@
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\Zebra\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -69,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RegisterService.cs" />
+    <Compile Include="Services\FileService.cs" />
     <Compile Include="Services\PriceService.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\ProductService.cs" />
@@ -90,6 +92,10 @@
     <ProjectReference Include="..\Zebra.CoreModels\Zebra.CoreModels.csproj">
       <Project>{22611468-9FDC-46E7-B6DC-724199C1E256}</Project>
       <Name>Zebra.CoreModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zebra.Global\Zebra.Global.csproj">
+      <Project>{A7A593B5-C46E-464C-A1AA-A733A87E58D6}</Project>
+      <Name>Zebra.Global</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

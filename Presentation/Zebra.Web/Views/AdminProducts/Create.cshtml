@@ -1,6 +1,6 @@
 ﻿@model Zebra.ViewModels.View.AdminProducts.VMAdminProductsCreate
 
-@using (Html.BeginForm("Create", "AdminProducts", FormMethod.Post,new { @id="addForm" }))
+@using (Html.BeginForm("Create", "AdminProducts", FormMethod.Post, new { @id = "addForm" }))
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(x => x.ProductId)

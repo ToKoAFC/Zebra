@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Zebra.Services;
+using Zebra.ViewModels.AdminCategory.Common;
 using Zebra.ViewModels.View.AdminProducts;
 
 namespace Zebra.Web.Controllers
@@ -8,9 +9,7 @@ namespace Zebra.Web.Controllers
     public class AdminProductsController : Controller
     {
         public ProductService _productService { get; set; }
-        public AdminProductsController()
-        {
-        }
+        public FileService _fileService { get; set; }
 
         public ActionResult Index()
         {
@@ -50,6 +49,23 @@ namespace Zebra.Web.Controllers
         {
             _productService.DeleteProduct(productId);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult UploadFile(int productId)
+        {
+            var model = new VMUploadProductFile
+            {
+                ProductId = productId
+            };
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public ActionResult UploadFile(VMUploadProductFile model)
+        {            
+            var fileId = _fileService.UploadFile(model);
+            return Json(new { fileId = fileId }, JsonRequestBehavior.AllowGet);
         }
     }
 }

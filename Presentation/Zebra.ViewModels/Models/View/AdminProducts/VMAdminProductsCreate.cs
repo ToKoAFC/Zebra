@@ -16,5 +16,6 @@ namespace Zebra.ViewModels.View.AdminProducts
 
         [Display(Name = "Cena")]
         public decimal BasePrice { get; set; }
+        
     }
 }

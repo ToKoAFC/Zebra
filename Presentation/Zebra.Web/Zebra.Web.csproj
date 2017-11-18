@@ -220,6 +220,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap_treeview\bootstrap-treeview.css" />
+    <Content Include="Content\dropzone\custom.css" />
+    <Content Include="Content\dropzone\dropzone.css" />
+    <Content Include="Content\dropzone\responsive.css" />
+    <Content Include="Content\dropzone\style.css" />
+    <Content Include="Content\dropzone\tiles_responsive.css" />
     <Content Include="Content\footable\footable.bootstrap.css" />
     <Content Include="Content\footable\footable.bootstrap.min.css" />
     <Content Include="Content\material\material.min.css" />
@@ -296,6 +301,7 @@
     <Content Include="Views\AdminProducts\Create.cshtml" />
     <Content Include="Views\AdminPrice\Index.cshtml" />
     <Content Include="Views\AdminPrice\Create.cshtml" />
+    <Content Include="Views\AdminProducts\UploadFile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

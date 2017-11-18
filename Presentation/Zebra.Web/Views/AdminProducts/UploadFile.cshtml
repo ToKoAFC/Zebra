@@ -1,0 +1,98 @@
+﻿@model Zebra.ViewModels.AdminCategory.Common.VMUploadProductFile
+
+<link href="~/Content/dropzone/dropzone.css" rel="stylesheet" />
+<script src="~/Scripts/dropzone/dropzone.min.js"></script>
+
+<form id="picturesForm" name="picturesForm" method="POST">
+
+
+    <div class="form-group">
+        <div class="col-md-12">
+            <div id="dropzone-area" class="uploadform no-margin dz-clickable dropzone dropzone-mini">
+                <input type="hidden" name="ProductId" />
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            </div>
+        </div>
+    </div>
+
+</form>
+<script type="text/javascript">
+    Dropzone.autoDiscover = false;
+    $(document).ready(function () {
+        
+        var myDropzone = new Dropzone(document.getElementById('dropzone-area'), {
+            uploadMultiple: false,
+            //acceptedFiles: '.jpg,.png,.jpeg,.gif',
+            autoProcessQueue: true,
+            parallelUploads: 1,
+            paramName: 'FilesToUpload',
+            maxFiles: 6,
+            dictCancelUploadConfirmation: "Czy na pewno chcesz anulować wczytywanie tego pliku?",
+            url: '@Url.Action("UploadFile", "AdminProducts", new { Model.ProductId })',
+            method: "POST",
+            maxFilesize: 50,
+            init: function () {
+                var thisDropzone = this;
+
+
+
+                 var files = @Html.Raw(Json.Encode(Model.FilesToUpload));
+
+                 $.each(files, function (index, item) {
+
+                     var file = { name: item.Name, size: item.Size, type: item.ContentType, Id: item.Id,  };
+
+
+                     thisDropzone.emit("addedfile", file);
+                     thisDropzone.emit("thumbnail", file, item.IconFileUrl);
+                     thisDropzone.emit("complete", file);
+
+                });
+
+            },
+
+        });
+
+        myDropzone.on("removedfile", function(file) {
+            console.log(file);
+            console.log(this);
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("DeleteFile", "AdminProducts")',
+                data: {
+                    pictureId: file.Id,
+                    resourceId: @Model.ProductId,
+                    ContentType: file.type
+                    }
+            });
+        });
+
+
+
+
+        myDropzone.on("sending", function (file, xhr, formData) {
+        });
+
+        myDropzone.on('success', function (file, response) {
+            if (response.fileId < 1) {
+                alert("Hej coś poszło nie tak, plik jest uszkodzony, skontaktuj się z adminem.");
+            } else {
+                file.Id = response.fileId;
+            }
+        });
+
+        myDropzone.on("thumbnail", function (file) {
+            //  $(".stepContainer").height($("#dropzone-area").height() + 100);
+            if (file.status !== "error") {
+                file.acceptDimensions();
+            }
+        });
+
+        myDropzone.on("maxfilesexceeded", function (file) {
+            this.removeFile(file);
+        });
+
+
+    });
+</script>
