@@ -49,6 +49,20 @@ namespace Zebra.Database.Access
             return product;
         }
 
+        public List<CoreProduct> GetProducts()
+        {
+            var products = _context.Products
+                .Select(prod => new CoreProduct
+                {
+                    Name = prod.Name,
+                    Description = prod.Description,
+                    ProuductId = prod.ProuductId,
+                    BasePrice = prod.BasePrice
+                })
+                .ToList();
+            return products;
+        }
+
         public void SaveProduct(CoreProduct product, int? companyId)
         {
             var dbProduct = _context.Products.Where(p => p.ProuductId == product.ProuductId).FirstOrDefault();

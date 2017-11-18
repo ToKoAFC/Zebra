@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -10,14 +11,16 @@ namespace Zebra.Web
     {
         protected void Application_Start()
         {
+            var config = GlobalConfiguration.Configuration;
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            WebApiConfig.Register(config);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             var builder = new ContainerBuilder();
             RegisterService.Register(builder, "name=ZebraContext");
-            IoCConfig.SetupIoC(builder);
+            IoCConfig.SetupIoC(builder, config);
         }
     }
 }
