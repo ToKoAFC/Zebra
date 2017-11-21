@@ -11,16 +11,15 @@ namespace Zebra.Web
     {
         protected void Application_Start()
         {
-            var config = GlobalConfiguration.Configuration;
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            WebApiConfig.Register(config);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             var builder = new ContainerBuilder();
             RegisterService.Register(builder, "name=ZebraContext");
-            IoCConfig.SetupIoC(builder, config);
+            IoCConfig.SetupIoC(builder);
         }
     }
 }

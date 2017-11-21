@@ -223,6 +223,7 @@
     <Compile Include="Controllers\AdminPriceController.cs" />
     <Compile Include="Controllers\AdminProductsController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\PandaController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

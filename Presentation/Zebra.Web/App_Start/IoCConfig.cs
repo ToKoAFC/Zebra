@@ -9,7 +9,7 @@ namespace Zebra.Web
 {
     public class IoCConfig
     {
-        public static void SetupIoC(ContainerBuilder builder,HttpConfiguration config)
+        public static void SetupIoC(ContainerBuilder builder)
         {
             //Enable property injection into action filters.
             builder.RegisterFilterProvider();
@@ -27,8 +27,7 @@ namespace Zebra.Web
             // Resolver for MVC.
             var mvc_resolver = new AutofacDependencyResolver(container);
             DependencyResolver.SetResolver(mvc_resolver);
-
-            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+            
         }
     }
 }
