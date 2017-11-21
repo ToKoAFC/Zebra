@@ -10,7 +10,7 @@ namespace Zebra.Database.Access
 {
     public class FileAccess
     {
-        private readonly string directoryDest = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "content", "img", "upload");
+        private readonly string directoryDest = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img");
         private readonly ZebraContext _context;
         public FileAccess(ZebraContext context)
         {

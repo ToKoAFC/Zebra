@@ -9,6 +9,7 @@ namespace Zebra.ViewModels.Common
         public string Name { get; set; }
         public string Description { get; set; }
         public string BasePrice { get; set; }
+        public string FileName { get; set; }
         public List<VMCategory> Categories { get; set; }
     }
 }

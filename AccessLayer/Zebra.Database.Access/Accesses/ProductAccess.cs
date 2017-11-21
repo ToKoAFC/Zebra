@@ -25,6 +25,7 @@ namespace Zebra.Database.Access
                     Description = prod.Description,
                     ProuductId = prod.ProuductId,
                     BasePrice = prod.BasePrice,
+                    FileName = prod.Files.Any() ? prod.Files.FirstOrDefault().FileName : "BaseProduct.jpg",
                     Categories = prod.Categories.Select(cat => new CoreCategory
                     {
                         CategoryId = cat.CategoryId,

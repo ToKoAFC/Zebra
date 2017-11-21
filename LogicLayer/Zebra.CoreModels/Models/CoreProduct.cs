@@ -12,6 +12,8 @@ namespace Zebra.CoreModels
 
         public decimal BasePrice { get; set; }
 
+        public string FileName { get; set; }
+
         public List<CoreCategory> Categories { get; set; }
     }
 }
