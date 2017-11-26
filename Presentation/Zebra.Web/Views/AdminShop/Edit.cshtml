@@ -1,5 +1,8 @@
 ﻿@model Zebra.ViewModels.AdminCategory.Common.VMShop
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA7k7SS5PPnXshOKOjBoHUG33IVZIRzjs8&libraries=places"></script>
+
+<script type="text/javascript" 
+        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA7k7SS5PPnXshOKOjBoHUG33IVZIRzjs8&libraries=places">
+</script>
 
 @{
     ViewBag.Title = "Edit";
@@ -57,7 +60,9 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Localization, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
-                    <input class="form-control col-md-10" id="txtPlaces" value="@Model.Localization.Address" placeholder="Wybierz miejsce" />
+                    
+                    <input class="form-control col-md-10" id="localization" value="@Model.Localization.Address" placeholder="Wybierz miejsce" />
+                    
                     <div id="warning" style="color: red;">
                         <p>Wybierz miejsce z listy</p>
                     </div>
@@ -90,12 +95,12 @@
     $(document).ready(function () {
 
         $("#warning").hide();
-        var places = new google.maps.places.Autocomplete(document.getElementById('txtPlaces')); //adding Google Place AutoComlpete to field
-        google.maps.event.addListener(places, 'load', function () {                    //listener set on change
+        var places = new google.maps.places.Autocomplete(document.getElementById('localization')); 
+        google.maps.event.addListener(places, 'load', function () {                    
             setGeoData(places);
         });
 
-        google.maps.event.addListener(places, 'place_changed', function () {                    //listener set on change
+        google.maps.event.addListener(places, 'place_changed', function () {  
 
             setGeoData(places);
             $("#warning").hide();
@@ -127,7 +132,6 @@
         $("#Localization_Address").val(address);
         $("#Localization_Latitude").val(place.geometry.location.lat());
         $("#Localization_Longitude").val(place.geometry.location.lng());
-
     }
 
     function getElem(addressComponents, elem) {

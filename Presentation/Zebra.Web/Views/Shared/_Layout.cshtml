@@ -21,27 +21,24 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Zebra", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a href="/Home/Index">
+                    <img style="margin-left:40px; float:left" width="81" height="54" src="~/img/logo.png" />
+                    <div style="float:left; color:white; margin-top:5px; margin-left:5px; font-size:32px; font-style:oblique">ZEBRA</div>
+                    
+                </a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Produkty", "Index", "Products")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
     <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer class="col-md-12">
-            <p>&copy; @DateTime.Now.Year - ZEBRA Online Shop</p>
-            <div class="col-md-2 col-md-offset-5">@Html.ActionLink("Panel administratora","Index","Admin")</div>
-        </footer>
+            @RenderBody()
     </div>
-
+    <div>
+        <div class="col-md-2 col-md-offset-5">@Html.ActionLink("Panel administratora", "Index", "Admin")</div>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

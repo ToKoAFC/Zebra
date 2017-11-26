@@ -1,7 +1,6 @@
 ﻿using System.Web.Mvc;
-using Zebra.Services;
+using Zebra.Services.Interfaces;
 using Zebra.ViewModels.AdminCategory.Common;
-using Zebra.ViewModels.Common;
 using Zebra.ViewModels.View.AdminCategory;
 
 namespace Zebra.Web.Controllers
@@ -9,7 +8,11 @@ namespace Zebra.Web.Controllers
     [Authorize]
     public class AdminShopController : Controller
     {
-        public ShopService _shopService { get; set; }
+        private readonly IShopService _shopService;
+        public AdminShopController(IShopService shopService)
+        {
+            _shopService = shopService;
+        }
 
         public ActionResult Index()
         {

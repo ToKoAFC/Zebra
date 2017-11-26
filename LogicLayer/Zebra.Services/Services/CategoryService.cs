@@ -1,15 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Zebra.Database.Access;
+using Zebra.Database.Access.Interfaces;
+using Zebra.Services.Interfaces;
 using Zebra.ViewModels.AdminCategory.Common;
-using Zebra.ViewModels.View.AdminCategory;
 
 namespace Zebra.Services
 {
-    public class CategoryService
+    public class CategoryService : ICategoryService
     {
-        public CategoryAccess _categoryAccess { get; set; }
+        private readonly ICategoryAccess _categoryAccess;
+        public CategoryService(ICategoryAccess categoryAccess)
+        {
+            _categoryAccess = categoryAccess;
+        }
 
         public List<VMCategory> GetCategories()
         {

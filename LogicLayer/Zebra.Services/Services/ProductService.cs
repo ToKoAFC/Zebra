@@ -1,17 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Zebra.CoreModels;
-using Zebra.Database.Access;
+using Zebra.Database.Access.Interfaces;
+using Zebra.Services.Interfaces;
 using Zebra.ViewModels.AdminCategory.Common;
 using Zebra.ViewModels.Common;
 using Zebra.ViewModels.View.AdminProducts;
 
 namespace Zebra.Services
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
-        public ProductAccess _productAccess { get; set; }
-        public UserAccess _userAccess { get; set; }
+        private readonly IProductAccess _productAccess;
+        private readonly IUserAccess _userAccess;
+        public ProductService(IProductAccess productAccess, IUserAccess userAccess)
+        {
+            _productAccess = productAccess;
+            _userAccess = userAccess;
+        }
 
         public List<VMProductBaseInfo> GetProducts()
         {

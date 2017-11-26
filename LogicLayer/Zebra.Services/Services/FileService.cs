@@ -1,17 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Zebra.CoreModels;
-using Zebra.Database.Access;
+﻿using Zebra.CoreModels;
+using Zebra.Database.Access.Interfaces;
+using Zebra.Services.Interfaces;
 using Zebra.ViewModels.AdminCategory.Common;
-using Zebra.ViewModels.View.AdminCategory;
 
 namespace Zebra.Services
 {
-    public class FileService
+    public class FileService : IFileService
     {
-        public FileAccess _fileAccess { get; set; }
+        private readonly IFileAccess _fileAccess;
+        public FileService(IFileAccess fileAccess)
+        {
+            _fileAccess = fileAccess;
+        }
 
         public int? UploadFile(VMUploadProductFile model)
         {

@@ -219,6 +219,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
+    <Compile Include="Controllers\AdminMessagesController.cs" />
+    <Compile Include="Controllers\AdminOrderController.cs" />
     <Compile Include="Controllers\AdminShopController.cs" />
     <Compile Include="Controllers\AdminPriceController.cs" />
     <Compile Include="Controllers\AdminProductsController.cs" />
@@ -255,6 +257,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="img\BaseProduct.jpg" />
+    <Content Include="img\logo.png" />
     <Content Include="img\user.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -292,8 +295,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -327,6 +328,8 @@
     <Content Include="Views\AdminProducts\UploadFile.cshtml" />
     <Content Include="Views\AdminShop\Index.cshtml" />
     <Content Include="Views\AdminShop\Edit.cshtml" />
+    <Content Include="Views\AdminOrder\Index.cshtml" />
+    <Content Include="Views\AdminMessages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

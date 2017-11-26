@@ -1,12 +1,16 @@
 ﻿using System.Web.Mvc;
-using Zebra.Services;
+using Zebra.Services.Interfaces;
 
 namespace Zebra.Web.Controllers
 {
     [Authorize]
     public class ProductsController : Controller
     {
-        public ProductService _productService { get; set; }
+        private readonly IProductService _productService;
+        public ProductsController(IProductService productService)
+        {
+            _productService = productService;
+        }
         public ProductsController()
         {
         }

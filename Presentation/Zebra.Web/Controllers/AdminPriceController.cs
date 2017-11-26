@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using Zebra.Services;
+using Zebra.Services.Interfaces;
 using Zebra.ViewModels.View.AdminPrice;
 
 namespace Zebra.Web.Controllers
@@ -7,10 +7,13 @@ namespace Zebra.Web.Controllers
     [Authorize]
     public class AdminPriceController : Controller
     {
-        public CategoryService _categoryService { get; set; }
-        public PriceService _priceService { get; set; }
-        public AdminPriceController()
+        private readonly ICategoryService _categoryService;
+        private readonly IPriceService _priceService;
+
+        public AdminPriceController(ICategoryService categoryService, IPriceService priceService)
         {
+            _categoryService = categoryService;
+            _priceService = priceService;
         }
 
         public ActionResult Index()

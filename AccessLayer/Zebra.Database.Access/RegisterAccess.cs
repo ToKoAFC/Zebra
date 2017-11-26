@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using System.Linq;
+using Zebra.Database.Access.Interfaces;
 
 namespace Zebra.Database.Access
 {
@@ -17,9 +18,9 @@ namespace Zebra.Database.Access
                 .WithParameter(new NamedParameter("nameOrConnectionString", nameOrConnectionString))
                 .InstancePerLifetimeScope();
 
-            builder.RegisterAssemblyTypes(typeof(ProductAccess).Assembly)
+            builder.RegisterAssemblyTypes(typeof(IProductAccess).Assembly)
                 .Where(t => t.Name.EndsWith("Access") && t.Namespace != null && t.Namespace.StartsWith("Zebra.Database.Access"))
-                .PropertiesAutowired();            
+                .AsImplementedInterfaces();            
         }
     }
 }

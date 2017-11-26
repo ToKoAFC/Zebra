@@ -1,14 +1,10 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using Zebra.CoreModels;
-using Zebra.Database.Models;
-using Zebra.Global;
+using Zebra.Database.Access.Interfaces;
 
 namespace Zebra.Database.Access
 {
-    public class ShopAccess
+    public class ShopAccess : IShopAccess
     {
         private readonly ZebraContext _context;
         public ShopAccess(ZebraContext context)

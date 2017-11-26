@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using System.Linq;
 using Zebra.Database.Access;
+using Zebra.Services.Interfaces;
 
 namespace Zebra.Services
 {
@@ -15,9 +16,9 @@ namespace Zebra.Services
         {
             RegisterAccess.Register(builder, nameOrConnectionString);
 
-            builder.RegisterAssemblyTypes(typeof(ProductService).Assembly)
+            builder.RegisterAssemblyTypes(typeof(IProductService).Assembly)
                 .Where(t => t.Name.EndsWith("Service") && t.Namespace != null && t.Namespace.StartsWith("Zebra.Services"))                
-                .PropertiesAutowired();
+                .AsImplementedInterfaces();
         }
     }
 }

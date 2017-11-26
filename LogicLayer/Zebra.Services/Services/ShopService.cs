@@ -1,13 +1,18 @@
 ﻿using Zebra.CoreModels;
-using Zebra.Database.Access;
+using Zebra.Database.Access.Interfaces;
+using Zebra.Services.Interfaces;
 using Zebra.ViewModels.AdminCategory.Common;
 using Zebra.ViewModels.Common;
 
 namespace Zebra.Services
 {
-    public class ShopService
+    public class ShopService : IShopService
     {
-        public ShopAccess _shopAccess { get; set; }
+        private readonly IShopAccess _shopAccess;
+        public ShopService(IShopAccess shopAccess)
+        {
+            _shopAccess = shopAccess;
+        }
 
         public VMShop GetShopInfo()
         {

@@ -3,12 +3,13 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using Zebra.CoreModels;
+using Zebra.Database.Access.Interfaces;
 using Zebra.Database.Models;
 using Zebra.Global;
 
 namespace Zebra.Database.Access
 {
-    public class FileAccess
+    public class FileAccess : IFileAccess
     {
         private readonly string directoryDest = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img");
         private readonly ZebraContext _context;
@@ -17,7 +18,7 @@ namespace Zebra.Database.Access
             _context = context;
         }
 
-        public static byte[] ReadData(Stream stream)
+        private static byte[] ReadData(Stream stream)
         {
             byte[] buffer = new byte[16 * 1024];
 
@@ -33,7 +34,7 @@ namespace Zebra.Database.Access
             }
         }
 
-        public static MimeEnum MimeFromString(string mime)
+        private static MimeEnum MimeFromString(string mime)
         {
             if (mime.Contains("image"))
             {

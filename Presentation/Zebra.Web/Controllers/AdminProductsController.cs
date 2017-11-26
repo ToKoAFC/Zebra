@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using Zebra.Services;
+using Zebra.Services.Interfaces;
 using Zebra.ViewModels.AdminCategory.Common;
 using Zebra.ViewModels.View.AdminProducts;
 
@@ -8,8 +8,14 @@ namespace Zebra.Web.Controllers
     [Authorize]
     public class AdminProductsController : Controller
     {
-        public ProductService _productService { get; set; }
-        public FileService _fileService { get; set; }
+        private readonly IProductService _productService;
+        private readonly IFileService _fileService;
+
+        public AdminProductsController(IProductService productService, IFileService fileService)
+        {
+            _productService = productService;
+            _fileService = fileService;
+        }
 
         public ActionResult Index()
         {
@@ -44,7 +50,7 @@ namespace Zebra.Web.Controllers
             var model = _productService.GetProductForEdition(productId);
             return View("Create", model);
         }
-        
+
         public ActionResult Delete(int productId)
         {
             _productService.DeleteProduct(productId);
@@ -63,7 +69,7 @@ namespace Zebra.Web.Controllers
 
         [HttpPost]
         public ActionResult UploadFile(VMUploadProductFile model)
-        {            
+        {
             var fileId = _fileService.UploadFile(model);
             return Json(new { fileId = fileId }, JsonRequestBehavior.AllowGet);
         }

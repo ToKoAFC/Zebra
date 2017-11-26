@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zebra.CoreModels;
-using Zebra.Database.Models;
+using Zebra.Database.Access.Interfaces;
 
 namespace Zebra.Database.Access
 {
-    public class UserAccess
+    public class UserAccess : IUserAccess
     {
         private readonly ZebraContext _context;
         public UserAccess(ZebraContext context)

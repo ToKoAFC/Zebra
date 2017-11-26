@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using Zebra.Services;
+using Zebra.Services.Interfaces;
 using Zebra.ViewModels.View.AdminCategory;
 
 namespace Zebra.Web.Controllers
@@ -7,7 +7,12 @@ namespace Zebra.Web.Controllers
     [Authorize]
     public class AdminCategoryController : Controller
     {
-        public CategoryService _categoryService { get; set; }
+        private readonly ICategoryService _categoryService;
+
+        public AdminCategoryController(ICategoryService categoryService)
+        {
+            _categoryService = categoryService;
+        }
 
         public ActionResult Index()
         {

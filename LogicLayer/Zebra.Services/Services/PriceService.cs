@@ -1,15 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using Zebra.Database.Access;
-using Zebra.ViewModels.AdminCategory.Common;
-using Zebra.ViewModels.View.AdminCategory;
+﻿using Zebra.Database.Access.Interfaces;
+using Zebra.Services.Interfaces;
 
 namespace Zebra.Services
 {
-    public class PriceService
+    public class PriceService : IPriceService
     {
-        public PriceAccess _priceAccess { get; set; }
+        private readonly IPriceAccess _priceAccess;
+        public PriceService(IPriceAccess priceAccess)
+        {
+            _priceAccess = priceAccess;
+        }
      
         public void CreateCategory(string categoryName, int? parentId)
         {
