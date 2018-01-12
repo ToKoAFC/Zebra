@@ -1,9 +1,43 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿@model List<Zebra.ViewModels.AdminCategory.Common.VMDiscount>
 
-<h2>Index</h2>
+
+<div style="margin:30px">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+            <tr>
+                <th class="mdl-data-table__cell--non-numeric">Rabat</th>
+                <th>Description</th>
+                <th>Zniżka [%]</th>
+                <th>Kategorie</th>
+                <th>Wł./Wył.</th>
+                <th>Edytuj</th>
+                <th>Usuń</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var discount in Model)
+            {
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric">@discount.Name</td>
+                <td>@discount.Description</td>
+                <td>@discount.DiscountPercent</td>
+                <td>@discount.Categories</td>
+                @if (discount.IsActive)
+    {
+            <td><a href="@Url.Action("Disactive", new { discountId = discount.DiscountId})"><span>Dezaktywuj</span></a></td>
+}
+else
+{
+            <td><a href="@Url.Action("Active", new { discountId = discount.DiscountId})"><span>Aktywuj</span></a></td>
+}
+                <td><a href="@Url.Action("Edit",new { discountId = discount.DiscountId})"><i class="material-icons">edit</i></a></td>
+                <td><a href="@Url.Action("Delete",new { discountId = discount.DiscountId})"><i class="material-icons" style="color:red">delete</i></a></td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
 
 
 <a href="@Url.Action("Create")" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="top: auto;right: 50px;bottom: 50px;left: auto;position: fixed;"><i class="material-icons" style="color:white">add</i></a>

@@ -1,13 +1,14 @@
-﻿namespace Zebra.CoreModels
+﻿using System.Collections.Generic;
+
+namespace Zebra.CoreModels
 {
-    public class CoreCategoryDiscount
+    public class CoreDiscount
     {
-        public int CategoryId { get; set; }
         public int DiscountId { get; set; }
         public int DiscountPercent { get; set; }
         public bool IsActive { get; set; }
-        public bool IsDeleted { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public List<CoreCategory> Categories { get; set; }
     }
 }

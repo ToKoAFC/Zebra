@@ -10,13 +10,15 @@ namespace Zebra.Database.Models
         public DbCategory()
         {
             Products = new HashSet<DbProduct>();
+            Discounts = new HashSet<DbDiscount>();
         }
 
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CategoryId { get; set; }
 
         public string Name { get; set; }
-        
+
         public virtual ICollection<DbProduct> Products { get; set; }
+        public virtual ICollection<DbDiscount> Discounts { get; set; }
     }
 }

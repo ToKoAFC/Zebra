@@ -7,8 +7,8 @@ namespace Zebra.Database
     public class ZebraContext : IdentityDbContext<DbAppUser>
     {
         public DbSet<DbProduct> Products { get; set; }
-        public DbSet<DbProductPrice> ProductPrices { get; set; }
         public DbSet<DbCategory> Categories { get; set; }
+        public DbSet<DbDiscount> Discounts { get; set; }
         public DbSet<DbFile> Files { get; set; }
         public DbSet<DbShop> Shops { get; set; }
 

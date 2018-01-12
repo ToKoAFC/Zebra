@@ -79,15 +79,7 @@ namespace Zebra.Database.Access
             {
                 Name = product.Name,
                 Description = product.Description,
-                BasePrice = product.BasePrice,
-                ProductPrices = new List<DbProductPrice>
-                {
-                    new DbProductPrice
-                    {
-                        CreatedDate = DateTime.Now,
-                        Value = product.BasePrice
-                    }
-                }
+                BasePrice = product.BasePrice               
             });
             _context.SaveChanges();
         }

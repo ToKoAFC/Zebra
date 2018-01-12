@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Zebra.CoreModels;
 using Zebra.Database.Access.Interfaces;
@@ -14,54 +15,97 @@ namespace Zebra.Database.Access
             _context = context;
         }
 
-        //public List<CoreProduct> GetCoreProduct()
-        //{
-        //    return _context.Products
-        //        .Select(prod => new CoreProduct
-        //        {
-        //            Name = prod.Name,
-        //            Description = prod.Description,
-        //            ProuductId = prod.ProuductId,
-        //            BasePrice = prod.BasePrice,
-        //            Categories = prod.Categories.Select(cat => new CoreCategory
-        //            {
-        //                CategoryId = cat.CategoryId,
-        //                CategoryName = cat.Name
-        //            }).ToList()
-        //        })
-        //        .ToList();
-        //}
+        public void ChangeDiscountActivity(int discountId, bool setAs)
+        {
+            var discount = (from d in _context.Discounts
+                            where d.DiscountId == discountId
+                            select d).FirstOrDefault();
+            if (discount != null)
+            {
+                discount.IsActive = setAs;
+                _context.SaveChanges();
+            }
+            return;
+        }
 
-        //public CoreProduct GetProduct(int produtId)
-        //{
-        //    var product = _context.Products
-        //        .Where(p => p.ProuductId == produtId)
-        //        .Select(prod => new CoreProduct
-        //        {
-        //            Name = prod.Name,
-        //            Description = prod.Description,
-        //            ProuductId = prod.ProuductId,
-        //            BasePrice = prod.BasePrice
-        //        })
-        //        .FirstOrDefault();
-        //    return product;
-        //}
+        public void DeleteDiscount(int discountId)
+        {
+            var discount = (from d in _context.Discounts
+                            where d.DiscountId == discountId
+                            select d).FirstOrDefault();
+            if (discount != null)
+            {
+                discount.IsDeleted = true;
+                _context.SaveChanges();
+            }
+            return;
+        }
+
+        public CoreDiscount GetDiscount(int discountId)
+        {
+            var discount = (from d in _context.Discounts
+                            where d.DiscountId == discountId
+                            select new CoreDiscount
+                            {
+                                IsActive = d.IsActive,
+                                Description = d.Description,
+                                DiscountId = d.DiscountId,
+                                DiscountPercent = d.DiscountPercent,
+                                Name = d.Name,
+                                Categories = d.Categories.Select(c => new CoreCategory
+                                {
+                                    CategoryId = c.CategoryId,
+                                    CategoryName = c.Name
+                                }).ToList()
+                            }).FirstOrDefault();
+            return discount;
+        }
+
+        public List<CoreDiscount> GetDiscounts()
+        {
+            var result = (from d in _context.Discounts
+                          where !d.IsDeleted
+                          select new CoreDiscount
+                          {
+                              Name = d.Name,
+                              IsActive = d.IsActive,
+                              Description = d.Description,
+                              DiscountId = d.DiscountId,
+                              DiscountPercent = d.DiscountPercent,
+                              Categories = d.Categories.Select(c => new CoreCategory
+                              {
+                                  CategoryId = c.CategoryId,
+                                  CategoryName = c.Name
+                              }).ToList()
+                          }).ToList();
+            return result;
+        }
 
         public void SaveCategoryDiscount(CoreCategoryDiscount discount)
         {
-            var dbProducts = _context.Products
-                .Where(p => p.Categories.Any(cat => cat.CategoryId == discount.CategoryId))
-                .ToList();
-            if (!dbProducts.Any())
+            var dbDiscount = (from d in _context.Discounts
+                              where d.DiscountId == discount.DiscountId
+                              select d).FirstOrDefault();
+            if (dbDiscount == null)
             {
-                return;
+                dbDiscount = new DbDiscount
+                {
+                    IsActive = discount.IsActive,
+                    IsDeleted = discount.IsDeleted,
+                    Description = discount.Description,
+                    DiscountPercent = discount.DiscountPercent,
+                    Name = discount.Name
+                };
+                _context.Discounts.Add(dbDiscount);
             }
-            dbProducts.ForEach(prod =>
-            prod.ProductPrices.Add(new DbProductPrice
+            else
             {
-                CreatedDate = DateTime.Now,
-                Value = prod.BasePrice * discount.DiscountPercent
-            }));
+                dbDiscount.IsDeleted = discount.IsDeleted;
+                dbDiscount.IsActive = discount.IsActive;
+                dbDiscount.Name = discount.Name;
+                dbDiscount.Description = discount.Description;
+                dbDiscount.DiscountPercent = discount.DiscountPercent;
+            }
             _context.SaveChanges();
         }
 

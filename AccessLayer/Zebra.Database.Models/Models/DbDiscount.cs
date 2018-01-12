@@ -4,16 +4,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Zebra.Database.Models
 {
-    [Table("Products")]
-    public class DbProduct
+    [Table("Discounts")]
+    public class DbDiscount
     {
-        public DbProduct()
+        public DbDiscount()
         {
             Categories = new HashSet<DbCategory>();
-            Files = new HashSet<DbFile>();
         }
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ProuductId { get; set; }
+        public int DiscountId { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -23,9 +22,10 @@ namespace Zebra.Database.Models
 
         public bool IsDeleted { get; set; }
 
-        public decimal BasePrice { get; set; }
-        
+        public int DiscountPercent { get; set; }
+
+        public bool IsActive { get; set; }
+
         public virtual ICollection<DbCategory> Categories { get; set; }
-        public virtual ICollection<DbFile> Files { get; set; }
     }
 }

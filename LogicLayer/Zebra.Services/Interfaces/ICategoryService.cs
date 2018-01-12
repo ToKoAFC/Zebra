@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using Zebra.ViewModels.AdminCategory.Common;
 
 namespace Zebra.Services.Interfaces
@@ -9,5 +10,6 @@ namespace Zebra.Services.Interfaces
         void SaveCategory(VMCategory category);
         bool DeleteCategory(int categoryId);
         VMCategory GetCategory(int categoryId);
+        SelectList GetCategorySelectList();
     }
 }

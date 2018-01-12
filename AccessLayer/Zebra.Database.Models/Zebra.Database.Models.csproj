@@ -54,10 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\DbDiscount.cs" />
     <Compile Include="Models\DbShop.cs" />
     <Compile Include="Models\DbCategory.cs" />
     <Compile Include="Models\DbFile.cs" />
-    <Compile Include="Models\DbProductPrice.cs" />
     <Compile Include="Models\DbProduct.cs" />
     <Compile Include="Models\DbAppUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

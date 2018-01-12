@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 using Zebra.CoreModels;
 using Zebra.Database.Access.Interfaces;
 using Zebra.Services.Interfaces;
@@ -53,5 +54,16 @@ namespace Zebra.Services
                 CategoryName = coreCat.CategoryName,
             };
         }
-    }
+
+        public SelectList GetCategorySelectList()
+        {
+            var coreCategories = _categoryAccess.GetCoreCategories();
+            var selectListItems = coreCategories.Select(x => new SelectListItem
+            {
+                Value = x.CategoryId.ToString(),
+                Text = x.CategoryName
+            }).ToList();
+            return new SelectList(selectListItems, "Value", "Text");
+        }
+}
 }
