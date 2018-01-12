@@ -23,10 +23,10 @@ namespace Zebra.Web.Controllers
 
         public ActionResult Create()
         {
-            var categories = _categoryService.GetCategorySelectList();
+          //  var categories = _categoryService.GetCategorySelectList();
             var model = new VMAdminPriceCreate
             {
-                Categories = categories                
+         //       Categories = categories                
             };
             
             return View(model);

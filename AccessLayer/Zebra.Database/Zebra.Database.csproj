@@ -53,49 +53,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201710071324151_init.cs" />
-    <Compile Include="Migrations\201710071324151_init.Designer.cs">
-      <DependentUpon>201710071324151_init.cs</DependentUpon>
+    <Compile Include="Migrations\201801101954374_init.cs" />
+    <Compile Include="Migrations\201801101954374_init.Designer.cs">
+      <DependentUpon>201801101954374_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710071825382_addCompany.cs" />
-    <Compile Include="Migrations\201710071825382_addCompany.Designer.cs">
-      <DependentUpon>201710071825382_addCompany.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710071837099_AddProduct.cs" />
-    <Compile Include="Migrations\201710071837099_AddProduct.Designer.cs">
-      <DependentUpon>201710071837099_AddProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710071839095_Rename_column_name.cs" />
-    <Compile Include="Migrations\201710071839095_Rename_column_name.Designer.cs">
-      <DependentUpon>201710071839095_Rename_column_name.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710072205080_add_product_price.cs" />
-    <Compile Include="Migrations\201710072205080_add_product_price.Designer.cs">
-      <DependentUpon>201710072205080_add_product_price.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710072223293_add_categories.cs" />
-    <Compile Include="Migrations\201710072223293_add_categories.Designer.cs">
-      <DependentUpon>201710072223293_add_categories.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710072229520_rename_tables.cs" />
-    <Compile Include="Migrations\201710072229520_rename_tables.Designer.cs">
-      <DependentUpon>201710072229520_rename_tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710210555384_nullableCategoryId.cs" />
-    <Compile Include="Migrations\201710210555384_nullableCategoryId.Designer.cs">
-      <DependentUpon>201710210555384_nullableCategoryId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711012203315_BasePrice.cs" />
-    <Compile Include="Migrations\201711012203315_BasePrice.Designer.cs">
-      <DependentUpon>201711012203315_BasePrice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711181831238_addShopInfo.cs" />
-    <Compile Include="Migrations\201711181831238_addShopInfo.Designer.cs">
-      <DependentUpon>201711181831238_addShopInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711181837484_addShopInfo2.cs" />
-    <Compile Include="Migrations\201711181837484_addShopInfo2.Designer.cs">
-      <DependentUpon>201711181837484_addShopInfo2.cs</DependentUpon>
+    <Compile Include="Migrations\201801121821223_removeParentCategory.cs" />
+    <Compile Include="Migrations\201801121821223_removeParentCategory.Designer.cs">
+      <DependentUpon>201801121821223_removeParentCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,38 +76,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710071324151_init.resx">
-      <DependentUpon>201710071324151_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801101954374_init.resx">
+      <DependentUpon>201801101954374_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710071825382_addCompany.resx">
-      <DependentUpon>201710071825382_addCompany.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710071837099_AddProduct.resx">
-      <DependentUpon>201710071837099_AddProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710071839095_Rename_column_name.resx">
-      <DependentUpon>201710071839095_Rename_column_name.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710072205080_add_product_price.resx">
-      <DependentUpon>201710072205080_add_product_price.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710072223293_add_categories.resx">
-      <DependentUpon>201710072223293_add_categories.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710072229520_rename_tables.resx">
-      <DependentUpon>201710072229520_rename_tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710210555384_nullableCategoryId.resx">
-      <DependentUpon>201710210555384_nullableCategoryId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711012203315_BasePrice.resx">
-      <DependentUpon>201711012203315_BasePrice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711181831238_addShopInfo.resx">
-      <DependentUpon>201711181831238_addShopInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711181837484_addShopInfo2.resx">
-      <DependentUpon>201711181837484_addShopInfo2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801121821223_removeParentCategory.resx">
+      <DependentUpon>201801121821223_removeParentCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

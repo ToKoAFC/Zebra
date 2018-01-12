@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web.Mvc;
+using Zebra.CoreModels;
 using Zebra.Database.Access.Interfaces;
 using Zebra.Services.Interfaces;
 using Zebra.ViewModels.AdminCategory.Common;
@@ -25,20 +25,33 @@ namespace Zebra.Services
             }).ToList();
         }
 
-        public SelectList GetCategorySelectList()
+        public void SaveCategory(VMCategory category)
         {
-            var coreCategories = _categoryAccess.GetCoreCategories();
-            var selectListItems = coreCategories.Select(x => new SelectListItem
+            var coreCategory = new CoreCategory
             {
-                Value = x.CategoryId.ToString(),
-                Text = x.CategoryName
-            }).ToList();
-            return new SelectList(selectListItems, "Value", "Text");
+                CategoryId = category.CategoryId,
+                CategoryName = category.CategoryName
+            };
+            _categoryAccess.SaveCategory(coreCategory);
         }
 
-        public void CreateCategory(string categoryName, int? parentId)
+        public bool DeleteCategory(int categoryId)
         {
-            _categoryAccess.AddNewCategory(categoryName, parentId);
+            return _categoryAccess.DeleteCategory(categoryId);
+        }
+
+        public VMCategory GetCategory(int categoryId)
+        {
+            var coreCat = _categoryAccess.GetCategory(categoryId);
+            if (coreCat == null)
+            {
+                return null;
+            }
+            return new VMCategory
+            {
+                CategoryId = coreCat.CategoryId,
+                CategoryName = coreCat.CategoryName,
+            };
         }
     }
 }

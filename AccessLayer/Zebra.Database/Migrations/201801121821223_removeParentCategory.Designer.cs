@@ -7,13 +7,13 @@ namespace Zebra.Database.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Rename_column_name : IMigrationMetadata
+    public sealed partial class removeParentCategory : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Rename_column_name));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(removeParentCategory));
         
         string IMigrationMetadata.Id
         {
-            get { return "201710071839095_Rename_column_name"; }
+            get { return "201801121821223_removeParentCategory"; }
         }
         
         string IMigrationMetadata.Source

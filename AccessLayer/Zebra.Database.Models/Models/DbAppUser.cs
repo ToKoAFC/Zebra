@@ -21,13 +21,7 @@ namespace Zebra.Database.Models
 
         [StringLength(256)]
         public string SecondName { get; set; }
-
-        public int? CompanyId { get; set; }
-
-        [ForeignKey("CompanyId")]
-        public virtual DbCompany Company { get; set; }
-
-
+        
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<DbAppUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

@@ -28,6 +28,7 @@ namespace Zebra.Services
                 Name = p.Name,
                 ProductId = p.ProuductId,
                 FileName = p.FileName,
+                HasImage = p.HasImage,
                 BasePrice = p.BasePrice == 0 ? "---" : $"{p.BasePrice} zł",
                 Categories = p.Categories.Select(cat => new VMCategory
                 {

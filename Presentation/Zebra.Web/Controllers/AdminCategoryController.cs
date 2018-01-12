@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Zebra.Services.Interfaces;
+using Zebra.ViewModels.AdminCategory.Common;
 using Zebra.ViewModels.View.AdminCategory;
 
 namespace Zebra.Web.Controllers
@@ -26,18 +27,26 @@ namespace Zebra.Web.Controllers
 
         public ActionResult Create()
         {
-            var categorySelectList = _categoryService.GetCategorySelectList();
-            var model = new VMAdminCategoryCreate
-            {
-                CategoryList = categorySelectList
-            };
+            var model = new VMCategory();
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Create(VMAdminCategoryCreate model)
+        public ActionResult Create(VMCategory model)
         {
-            _categoryService.CreateCategory(model.CategoryName, model.ParentCategoryId);
+            _categoryService.SaveCategory(model);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(int categoryId)
+        {
+            var model = _categoryService.GetCategory(categoryId);
+            return View("Create", model);
+        }
+
+        public ActionResult Delete(int categoryId)
+        {
+            _categoryService.DeleteCategory(categoryId);
             return RedirectToAction("Index");
         }
     }

@@ -24,6 +24,7 @@ namespace Zebra.Database.Access
                     Description = prod.Description,
                     ProuductId = prod.ProuductId,
                     BasePrice = prod.BasePrice,
+                    HasImage = prod.Files.Any(),
                     FileName = prod.Files.Any() ? prod.Files.FirstOrDefault().FileName : "BaseProduct.jpg",
                     Categories = prod.Categories.Select(cat => new CoreCategory
                     {
@@ -86,8 +87,7 @@ namespace Zebra.Database.Access
                         CreatedDate = DateTime.Now,
                         Value = product.BasePrice
                     }
-                },
-                CompanyId = companyId ?? 0
+                }
             });
             _context.SaveChanges();
         }
@@ -109,7 +109,6 @@ namespace Zebra.Database.Access
             {
                 return false;
             }
-
         }
     }
 }

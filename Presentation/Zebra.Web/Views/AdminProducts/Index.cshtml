@@ -9,6 +9,7 @@
                 <th>Cena</th>
                 <th>Kategorie</th>
                 <th>Edytuj</th>
+                <th>Zdjęcie</th>
                 <th>Usuń</th>
             </tr>
         </thead>
@@ -26,6 +27,15 @@
                         }
                     </td>
                     <td><a href="@Url.Action("Edit",new { productId = product.ProductId})"><i class="material-icons">edit</i></a></td>
+                    @if (product.HasImage)
+                    {
+                        <td><a href="@Url.Action("UploadFile",new { productId = product.ProductId})"><i style="color:green" class="material-icons">done</i></a></td>
+                    }
+                    else
+                    {
+                        <td><a href="@Url.Action("UploadFile",new { productId = product.ProductId})"><i style="color:gray" class="material-icons">image</i></a></td>
+
+                    }
                     <td><a href="@Url.Action("Delete",new { productId = product.ProductId})"><i class="material-icons" style="color:red">delete</i></a></td>
                 </tr>
             }

@@ -23,7 +23,6 @@ namespace Zebra.Database.Access
             return new CoreUser
             {
                 UserId = user.Id,
-                CompanyId = user.CompanyId
             };
         }
     }

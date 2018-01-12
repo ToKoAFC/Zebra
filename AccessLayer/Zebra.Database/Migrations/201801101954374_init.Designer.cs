@@ -7,13 +7,13 @@ namespace Zebra.Database.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addShopInfo2 : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addShopInfo2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711181837484_addShopInfo2"; }
+            get { return "201801101954374_init"; }
         }
         
         string IMigrationMetadata.Source

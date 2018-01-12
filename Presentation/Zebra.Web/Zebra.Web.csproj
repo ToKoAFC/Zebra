@@ -218,6 +218,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <None Include="ConnectionStrings.config" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\AdminMessagesController.cs" />
     <Compile Include="Controllers\AdminOrderController.cs" />
@@ -264,7 +265,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ConnectionStrings.config" />
     <Content Include="Scripts\bootstrap_treeview\bootstrap-treeview.js" />
     <Content Include="Scripts\footable\footable.js" />
     <Content Include="Scripts\footable\footable.min.js" />

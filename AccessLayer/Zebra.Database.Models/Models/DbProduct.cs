@@ -25,12 +25,7 @@ namespace Zebra.Database.Models
         public bool IsDeleted { get; set; }
 
         public decimal BasePrice { get; set; }
-
-        public int CompanyId { get; set; }
-
-        [ForeignKey("CompanyId")]
-        public virtual DbCompany Company { get; set; }
-
+        
         public virtual ICollection<DbProductPrice> ProductPrices { get; set; }
         public virtual ICollection<DbCategory> Categories { get; set; }
         public virtual ICollection<DbFile> Files { get; set; }
