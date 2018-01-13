@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Zebra.CoreModels;
 using Zebra.Database.Access.Interfaces;
+using Zebra.Database.Models;
 
 namespace Zebra.Database.Access
 {
@@ -40,6 +41,21 @@ namespace Zebra.Database.Access
             var dbShop = _context.Shops.FirstOrDefault();
             if (dbShop == null)
             {
+                dbShop = new DbShop
+                {
+                    Address = coreShop.Address,
+                    City = coreShop.City,
+                    Country = coreShop.Country,
+                    Email = coreShop.Email,
+                    Latitude = coreShop.Latitude,
+                    Longitude = coreShop.Longitude,
+                    Name = coreShop.Name,
+                    NIP = coreShop.NIP,
+                    Phone = coreShop.Phone,
+                    Region = coreShop.Region,
+                    Regon = coreShop.Regon
+                };
+                _context.Shops.Add(dbShop);
                 return;
             }
             dbShop.Address = coreShop.Address;
