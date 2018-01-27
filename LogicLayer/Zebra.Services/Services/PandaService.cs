@@ -47,7 +47,7 @@ namespace Zebra.Services
         }
 
         public PandaShopInfo GetShopInfo()
-        {
+        {   //validation
             var info = _shopAccess.GetShopInfo();
             return new PandaShopInfo
             {
