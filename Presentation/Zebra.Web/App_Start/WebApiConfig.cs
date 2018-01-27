@@ -13,7 +13,7 @@ namespace Zebra.Web
 
             config.Routes.MapHttpRoute(
                 name: "API Default",
-                routeTemplate: "api/{controller}/{action}/{id}",
+                routeTemplate: "panda/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }

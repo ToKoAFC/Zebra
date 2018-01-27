@@ -34,6 +34,25 @@ namespace Zebra.Database.Access
                 })
                 .ToList();
         }
+        public List<CoreProduct> GetCoreProductSQL()
+        {
+            return (from prod in _context.Products
+                    select new CoreProduct
+                    {
+                        Name = prod.Name,
+                        Description = prod.Description,
+                        ProuductId = prod.ProuductId,
+                        BasePrice = prod.BasePrice,
+                        HasImage = prod.Files.Any(),
+                        FileName = prod.Files.Any() ? prod.Files.FirstOrDefault().FileName : "BaseProduct.jpg",
+                        Categories = prod.Categories.Select(cat => new CoreCategory
+                        {
+                            CategoryId = cat.CategoryId,
+                            CategoryName = cat.Name
+                        }).ToList()
+                    })
+                .ToList();
+        }
 
         public CoreProduct GetProduct(int produtId)
         {
@@ -79,7 +98,7 @@ namespace Zebra.Database.Access
             {
                 Name = product.Name,
                 Description = product.Description,
-                BasePrice = product.BasePrice               
+                BasePrice = product.BasePrice
             });
             _context.SaveChanges();
         }

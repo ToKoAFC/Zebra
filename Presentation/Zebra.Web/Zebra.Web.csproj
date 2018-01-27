@@ -218,12 +218,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <None Include="ConnectionStrings.config" />
+    <None Include="ConnectionStrings.config">
+      <SubType>Designer</SubType>
+    </None>
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\AdminShopController.cs" />
     <Compile Include="Controllers\AdminPriceController.cs" />
     <Compile Include="Controllers\AdminProductsController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\PandaConnector\PandaController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -233,7 +236,6 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="PerunAPI\ProductController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -263,8 +265,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\bootstrap_treeview\bootstrap-treeview.js" />
+    <Content Include="Scripts\dropzone\dropzone.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\footable\footable.js" />
     <Content Include="Scripts\footable\footable.min.js" />
+    <None Include="Properties\PublishProfiles\ZebraShop - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ZebraWeb - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -281,7 +288,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

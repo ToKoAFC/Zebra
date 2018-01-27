@@ -10,5 +10,6 @@ namespace Zebra.Database.Access.Interfaces
         void ChangeDiscountActivity(int discountId, bool setAs);
         CoreDiscount GetDiscount(int discountId);
         void DeleteDiscount(int discountId);
+        decimal? GetProductPrice(int productId);
     }
 }

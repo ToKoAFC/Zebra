@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Zebra.CoreModels;
 using Zebra.Database.Access.Interfaces;
@@ -79,6 +78,29 @@ namespace Zebra.Database.Access
                               }).ToList()
                           }).ToList();
             return result;
+        }
+
+        public decimal? GetProductPrice(int productId)
+        {
+            decimal price;
+            var product = _context.Products.FirstOrDefault(x => x.ProuductId == productId);
+            if (product == null)
+            {
+                return null;
+            }
+            price = product.BasePrice;
+            var discountList = _context.Products
+                            .Where(x => x.ProuductId == productId)
+                            .SelectMany(x => x.Categories)
+                            .SelectMany(x => x.Discounts)
+                            .Where(x => x.IsActive && x.IsDeleted)
+                            .Select(x => x.DiscountPercent)
+                            .ToList();
+            discountList.ForEach(x =>
+            {
+                price = x == 0 ? price *= x : price;
+            });
+            return price;
         }
 
         public void SaveCategoryDiscount(CoreCategoryDiscount discount)
