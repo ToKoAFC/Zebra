@@ -63,6 +63,7 @@ namespace Zebra.Web.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, JsonResponse.CreateResponse<Exception>(exc));
             }
 
+
         }
         [HttpPost]
         [Route("panda/GetShopInfo")]
