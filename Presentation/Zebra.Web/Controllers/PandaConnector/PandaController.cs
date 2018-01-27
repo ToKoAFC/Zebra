@@ -64,5 +64,19 @@ namespace Zebra.Web.Controllers
             }
 
         }
+        [HttpPost]
+        [Route("panda/GetShopInfo")]
+        public HttpResponseMessage GetShopInfo()
+        {
+            try
+            {
+                var shopInfo = _pandaService.GetShopInfo();
+                return Request.CreateResponse(HttpStatusCode.OK, JsonResponse.CreateResponse<PandaShopInfo>(shopInfo));
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, JsonResponse.CreateResponse<Exception>(exc));
+            }
+        }
     }
 }

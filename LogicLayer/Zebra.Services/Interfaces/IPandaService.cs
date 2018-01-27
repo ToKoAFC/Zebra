@@ -7,5 +7,6 @@ namespace Zebra.Services.Interfaces
     {
         List<int> GetProductsIds();
         List<PandaProductDetails> GetProductDetails(List<int> ids);
+        PandaShopInfo GetShopInfo();
     }
 }

@@ -10,10 +10,12 @@ namespace Zebra.Services
     {
         private readonly IProductAccess _productAccess;
         private readonly IPriceAccess _priceAccess;
-        public PandaService(IProductAccess productAccess, IPriceAccess priceAccess)
+        private readonly IShopAccess _shopAccess;
+        public PandaService(IProductAccess productAccess, IPriceAccess priceAccess, IShopAccess shopAccess)
         {
             _productAccess = productAccess;
             _priceAccess = priceAccess;
+            _shopAccess = shopAccess;
         }
 
         public List<PandaProductDetails> GetProductDetails(List<int> ids)
@@ -42,6 +44,25 @@ namespace Zebra.Services
         {
             var coreProducts = _productAccess.GetCoreProduct();
             return coreProducts.Select(p => p.ProuductId).ToList();
+        }
+
+        public PandaShopInfo GetShopInfo()
+        {   //validation
+            var info = _shopAccess.GetShopInfo();
+            return new PandaShopInfo
+            {
+                Address = info.Address,
+                City = info.City,
+                Country = info.Country,
+                Email = info.Email,
+                Latitude = info.Latitude,
+                Longitude = info.Longitude,
+                Name = info.Name,
+                NIP = info.NIP,
+                Phone = info.Phone,
+                Region = info.Region,
+                Regon = info.Regon
+            };
         }
     }
 }
