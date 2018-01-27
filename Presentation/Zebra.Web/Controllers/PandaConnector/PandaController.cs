@@ -49,12 +49,20 @@ namespace Zebra.Web.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, JsonResponse.CreateResponse<Exception>(exc));
             }
         }
-        //random init
-        //[HttpPost]
-        //[Route("panda/GetShopInfo")]
-        //public PandaShopInfo GetShopInfo()
-        //{
 
-        //}
+        [HttpPost]
+        [Route("panda/GetShopInfo")]
+        public PandaShopInfo GetShopInfo()
+        {
+            try
+            {
+                var productsId = _pandaService.GetProductsIds();
+                return Request.CreateResponse(HttpStatusCode.OK, JsonResponse.CreateResponse<List<int>>(productsId));
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, JsonResponse.CreateResponse<Exception>(exc));
+            }
+        }
     }
 }
