@@ -21,11 +21,18 @@ namespace Zebra.Web.Controllers
 
 
         [HttpPost]
-        [Route("panda/GetProductDetails")]
-        public List<PandaProductDetails> GetProductDetails(List<int> ids)
+        [Route("Product/GetProductDetails")]
+        public HttpResponseMessage GetProductDetails(List<int> ids)
         {
-            var products = _pandaService.GetProductDetails(ids);
-            return products;
+            try
+            {
+                var products = _pandaService.GetProductDetails(ids);
+                return Request.CreateResponse(HttpStatusCode.OK, JsonResponse.CreateResponse<List<PandaProductDetails>>(products));
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, JsonResponse.CreateResponse<Exception>(exc));
+            }
         }
 
         [HttpGet]
