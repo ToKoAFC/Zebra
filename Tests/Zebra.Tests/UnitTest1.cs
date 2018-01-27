@@ -11,7 +11,7 @@ namespace Zebra.Tests
     public class UnitTest1
     {
         private readonly ProductAccess access = new ProductAccess(new ZebraContext());
-
+        //update test
         [TestMethod]
         public void GetCoreProductEntities()
         {
