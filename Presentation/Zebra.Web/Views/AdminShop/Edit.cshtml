@@ -61,7 +61,10 @@
                 @Html.LabelFor(model => model.Localization, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
                     
-                    <input class="form-control col-md-10" id="localization" value="@Model.Localization.Address" placeholder="Wybierz miejsce" />
+                    <input class="form-control col-md-10" 
+                           id="localization" 
+                           value="@Model.Localization.Address" 
+                           placeholder="Wybierz miejsce" />
                     
                     <div id="warning" style="color: red;">
                         <p>Wybierz miejsce z listy</p>

@@ -56,6 +56,7 @@ namespace Zebra.Database.Access
                     Regon = coreShop.Regon
                 };
                 _context.Shops.Add(dbShop);
+                _context.SaveChanges();
                 return;
             }
             dbShop.Address = coreShop.Address;
