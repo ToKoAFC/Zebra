@@ -11,19 +11,29 @@ namespace Zebra.Web
     {
         public static void SetupIoC(ContainerBuilder builder)
         {
-            //Enable property injection into action filters.
-            builder.RegisterFilterProvider();
+            // Get your HttpConfiguration.
+            var config = GlobalConfiguration.Configuration;
 
             // Register your Web API controllers.
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
+            //Enable property injection into action filters.
+            builder.RegisterFilterProvider();
+
             // register controllers
             builder.RegisterControllers(Assembly.GetExecutingAssembly())
                 .PropertiesAutowired();
-                       
-            // Build the container.
-            var container = builder.Build();
 
+            // OPTIONAL: Register the Autofac filter provider.
+            builder.RegisterWebApiFilterProvider(config);
+
+            // OPTIONAL: Register the Autofac model binder provider.
+            builder.RegisterWebApiModelBinderProvider();
+
+            // Set the dependency resolver to be Autofac.
+            var container = builder.Build();
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+            
             // Resolver for MVC.
             var mvc_resolver = new AutofacDependencyResolver(container);
             DependencyResolver.SetResolver(mvc_resolver);

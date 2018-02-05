@@ -19,13 +19,13 @@ namespace Zebra.Web.Controllers
             _pandaService = pandaService;
         }
 
+
         [HttpPost]
         [Route("Product/GetProductDetails")]
-        public HttpResponseMessage GetProductDetails([FromBody]List<int> ids)
+        public HttpResponseMessage GetProductDetails(List<int> ids)
         {
             try
             {
-                ids.Add(1);ids.Add(2);
                 var products = _pandaService.GetProductDetails(ids);
                 return Request.CreateResponse(HttpStatusCode.OK, JsonResponse.CreateResponse<List<PandaProductDetails>>(products));
             }
@@ -49,6 +49,22 @@ namespace Zebra.Web.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, JsonResponse.CreateResponse<Exception>(exc));
             }
         }
+<<<<<<< HEAD
+        [HttpPost]
+        [Route("panda/GetShopInfo")]
+        public HttpResponseMessage GetShopInfo()
+        {
+            try
+            {
+                var productsId = _pandaService.GetShop();
+                return Request.CreateResponse(HttpStatusCode.OK, JsonResponse.CreateResponse<List<PandaShopInfo>>(productsId));
+            }
+            catch (Exception exc)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, JsonResponse.CreateResponse<Exception>(exc));
+            }
+
+        }
         [HttpPost]
         [Route("panda/GetShopInfo")]
         public HttpResponseMessage GetShopInfo()
@@ -57,6 +73,17 @@ namespace Zebra.Web.Controllers
             {
                 var shopInfo = _pandaService.GetShopInfo();
                 return Request.CreateResponse(HttpStatusCode.OK, JsonResponse.CreateResponse<PandaShopInfo>(shopInfo));
+=======
+
+        [HttpPost]
+        [Route("panda/GetShopInfo")]
+        public PandaShopInfo GetShopInfo()
+        {
+            try
+            {
+                var productsId = _pandaService.GetProductsIds();
+                return Request.CreateResponse(HttpStatusCode.OK, JsonResponse.CreateResponse<List<int>>(productsId));
+>>>>>>> dev_random
             }
             catch (Exception exc)
             {
