@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Common\VMDiscount.cs" />
+    <Compile Include="Models\Common\VMDelivery.cs" />
     <Compile Include="Models\Common\VMShop.cs" />
     <Compile Include="Models\Common\VMGeoLocal.cs" />
     <Compile Include="Models\Common\VMFile.cs" />

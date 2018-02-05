@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\CoreDiscount.cs" />
+    <Compile Include="Models\CoreDelivery.cs" />
     <Compile Include="Models\CoreShop.cs" />
     <Compile Include="Models\CoreCategory.cs" />
     <Compile Include="Models\CoreCategoryDiscount.cs" />

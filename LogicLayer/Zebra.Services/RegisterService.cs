@@ -11,11 +11,9 @@ namespace Zebra.Services
         {
             SetupIoC(builder, nameOrConnectionString);
         }
-
         private static void SetupIoC(ContainerBuilder builder, string nameOrConnectionString)
         {
             RegisterAccess.Register(builder, nameOrConnectionString);
-
             builder.RegisterAssemblyTypes(typeof(IProductService).Assembly)
                 .Where(t => t.Name.EndsWith("Service") && t.Namespace != null && t.Namespace.StartsWith("Zebra.Services"))                
                 .AsImplementedInterfaces();

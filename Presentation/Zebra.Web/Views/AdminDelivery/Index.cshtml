@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Zebra.ViewModels.AdminCategory.Common.VMDelivery>
+
+<div style="margin:30px">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+            <tr>
+                <th class="mdl-data-table__cell--non-numeric">Dostawa</th>
+                <th>Kosz</th>
+                <th>Min. czas</th>
+                <th>Max. czas</th>
+                <th>Edytuj</th>
+                <th>Usuń</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var delivery in Model)
+            {
+                <tr>
+                    <td class="mdl-data-table__cell--non-numeric">@delivery.Name</td>
+                    <td>@delivery.Cost</td>
+                    <td>@delivery.DeliveryTimeMin</td>
+                    <td>@delivery.DeliveryTimeMax</td>
+                    <td><a href="@Url.Action("Edit",new { deliveryId = delivery.DeliveryId})"><i class="material-icons">edit</i></a></td>
+                    <td><a href="@Url.Action("Delete",new { deliveryId = delivery.DeliveryId})"><i class="material-icons" style="color:red">delete</i></a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<a href="@Url.Action("Create")" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="top: auto;right: 50px;bottom: 50px;left: auto;position: fixed;"><i class="material-icons" style="color:white">add</i></a>

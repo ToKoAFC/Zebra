@@ -56,8 +56,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accesses\DeliveryAccess.cs" />
     <Compile Include="Interfaces\ICategoryAccess.cs" />
     <Compile Include="Interfaces\IFileAccess.cs" />
+    <Compile Include="Interfaces\IDeliveryAccess.cs" />
     <Compile Include="Interfaces\IPriceAccess.cs" />
     <Compile Include="Interfaces\IProductAccess.cs" />
     <Compile Include="Interfaces\IShopAccess.cs" />

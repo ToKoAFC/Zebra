@@ -3,7 +3,7 @@ namespace Zebra.Database.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init : DbMigration
+    public partial class Init : DbMigration
     {
         public override void Up()
         {
@@ -12,12 +12,25 @@ namespace Zebra.Database.Migrations
                 c => new
                     {
                         CategoryId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        ParentCategoryId = c.Int(),
+                        Name = c.String(nullable: false),
+                        ParentCategoryId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.CategoryId)
                 .ForeignKey("dbo.Categories", t => t.ParentCategoryId)
                 .Index(t => t.ParentCategoryId);
+            
+            CreateTable(
+                "dbo.Discounts",
+                c => new
+                    {
+                        DiscountId = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 50),
+                        Description = c.String(),
+                        IsDeleted = c.Boolean(nullable: false),
+                        DiscountPercent = c.Int(nullable: false),
+                        IsActive = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.DiscountId);
             
             CreateTable(
                 "dbo.Products",
@@ -25,7 +38,7 @@ namespace Zebra.Database.Migrations
                     {
                         ProuductId = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 50),
-                        Description = c.String(),
+                        Description = c.String(maxLength: 400),
                         IsDeleted = c.Boolean(nullable: false),
                         BasePrice = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
@@ -44,19 +57,6 @@ namespace Zebra.Database.Migrations
                         FileName = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.ProductPrices",
-                c => new
-                    {
-                        ProductPriceId = c.Int(nullable: false, identity: true),
-                        ProductId = c.Int(nullable: false),
-                        CreatedDate = c.DateTime(nullable: false),
-                        Value = c.Decimal(nullable: false, precision: 18, scale: 2),
-                    })
-                .PrimaryKey(t => t.ProductPriceId)
-                .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
-                .Index(t => t.ProductId);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -148,6 +148,19 @@ namespace Zebra.Database.Migrations
                 .Index(t => t.UserId);
             
             CreateTable(
+                "dbo.DbDiscountDbCategories",
+                c => new
+                    {
+                        DbDiscount_DiscountId = c.Int(nullable: false),
+                        DbCategory_CategoryId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.DbDiscount_DiscountId, t.DbCategory_CategoryId })
+                .ForeignKey("dbo.Discounts", t => t.DbDiscount_DiscountId, cascadeDelete: true)
+                .ForeignKey("dbo.Categories", t => t.DbCategory_CategoryId, cascadeDelete: true)
+                .Index(t => t.DbDiscount_DiscountId)
+                .Index(t => t.DbCategory_CategoryId);
+            
+            CreateTable(
                 "dbo.DbFileDbProducts",
                 c => new
                     {
@@ -183,33 +196,36 @@ namespace Zebra.Database.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.ProductCategories", "ProductId", "dbo.Products");
             DropForeignKey("dbo.ProductCategories", "CategoryId", "dbo.Categories");
-            DropForeignKey("dbo.ProductPrices", "ProductId", "dbo.Products");
             DropForeignKey("dbo.DbFileDbProducts", "DbProduct_ProuductId", "dbo.Products");
             DropForeignKey("dbo.DbFileDbProducts", "DbFile_Id", "dbo.Files");
+            DropForeignKey("dbo.DbDiscountDbCategories", "DbCategory_CategoryId", "dbo.Categories");
+            DropForeignKey("dbo.DbDiscountDbCategories", "DbDiscount_DiscountId", "dbo.Discounts");
             DropForeignKey("dbo.Categories", "ParentCategoryId", "dbo.Categories");
             DropIndex("dbo.ProductCategories", new[] { "ProductId" });
             DropIndex("dbo.ProductCategories", new[] { "CategoryId" });
             DropIndex("dbo.DbFileDbProducts", new[] { "DbProduct_ProuductId" });
             DropIndex("dbo.DbFileDbProducts", new[] { "DbFile_Id" });
+            DropIndex("dbo.DbDiscountDbCategories", new[] { "DbCategory_CategoryId" });
+            DropIndex("dbo.DbDiscountDbCategories", new[] { "DbDiscount_DiscountId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.ProductPrices", new[] { "ProductId" });
             DropIndex("dbo.Categories", new[] { "ParentCategoryId" });
             DropTable("dbo.ProductCategories");
             DropTable("dbo.DbFileDbProducts");
+            DropTable("dbo.DbDiscountDbCategories");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.ShopInfo");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.ProductPrices");
             DropTable("dbo.Files");
             DropTable("dbo.Products");
+            DropTable("dbo.Discounts");
             DropTable("dbo.Categories");
         }
     }

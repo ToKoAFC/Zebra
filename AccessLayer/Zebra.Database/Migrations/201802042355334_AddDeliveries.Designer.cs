@@ -7,13 +7,13 @@ namespace Zebra.Database.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addPercentColumn : IMigrationMetadata
+    public sealed partial class AddDeliveries : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addPercentColumn));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDeliveries));
         
         string IMigrationMetadata.Id
         {
-            get { return "201801122207136_addPercentColumn"; }
+            get { return "201802042355334_AddDeliveries"; }
         }
         
         string IMigrationMetadata.Source

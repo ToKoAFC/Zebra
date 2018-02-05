@@ -53,25 +53,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201801101954374_init.cs" />
-    <Compile Include="Migrations\201801101954374_init.Designer.cs">
-      <DependentUpon>201801101954374_init.cs</DependentUpon>
+    <Compile Include="Migrations\201802042301505_Init.cs" />
+    <Compile Include="Migrations\201802042301505_Init.Designer.cs">
+      <DependentUpon>201802042301505_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801121821223_removeParentCategory.cs" />
-    <Compile Include="Migrations\201801121821223_removeParentCategory.Designer.cs">
-      <DependentUpon>201801121821223_removeParentCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801122044397_removePrices.cs" />
-    <Compile Include="Migrations\201801122044397_removePrices.Designer.cs">
-      <DependentUpon>201801122044397_removePrices.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801122053266_addDiscount.cs" />
-    <Compile Include="Migrations\201801122053266_addDiscount.Designer.cs">
-      <DependentUpon>201801122053266_addDiscount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801122207136_addPercentColumn.cs" />
-    <Compile Include="Migrations\201801122207136_addPercentColumn.Designer.cs">
-      <DependentUpon>201801122207136_addPercentColumn.cs</DependentUpon>
+    <Compile Include="Migrations\201802042355334_AddDeliveries.cs" />
+    <Compile Include="Migrations\201802042355334_AddDeliveries.Designer.cs">
+      <DependentUpon>201802042355334_AddDeliveries.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,20 +76,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801101954374_init.resx">
-      <DependentUpon>201801101954374_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802042301505_Init.resx">
+      <DependentUpon>201802042301505_Init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801121821223_removeParentCategory.resx">
-      <DependentUpon>201801121821223_removeParentCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801122044397_removePrices.resx">
-      <DependentUpon>201801122044397_removePrices.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801122053266_addDiscount.resx">
-      <DependentUpon>201801122053266_addDiscount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801122207136_addPercentColumn.resx">
-      <DependentUpon>201801122207136_addPercentColumn.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802042355334_AddDeliveries.resx">
+      <DependentUpon>201802042355334_AddDeliveries.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -19,10 +19,12 @@ namespace Zebra.Database.Models
         [StringLength(50)]
         public string Name { get; set; }
 
+        [StringLength(400)]
         public string Description { get; set; }
 
         public bool IsDeleted { get; set; }
 
+        [Range(0,double.MaxValue)]
         public decimal BasePrice { get; set; }
         
         public virtual ICollection<DbCategory> Categories { get; set; }

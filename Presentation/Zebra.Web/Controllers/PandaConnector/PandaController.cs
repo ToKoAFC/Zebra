@@ -22,7 +22,7 @@ namespace Zebra.Web.Controllers
 
         [HttpPost]
         [Route("Product/GetProductDetails")]
-        public HttpResponseMessage GetProductDetails(List<int> ids)
+        public HttpResponseMessage GetProductDetails([FromBody]List<int> ids)
         {
             try
             {

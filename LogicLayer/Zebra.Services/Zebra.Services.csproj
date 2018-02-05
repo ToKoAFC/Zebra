@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IDeliveryService.cs" />
     <Compile Include="Interfaces\IPandaService.cs" />
     <Compile Include="RegisterService.cs" />
     <Compile Include="Interfaces\ICategoryService.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Interfaces\IPriceService.cs" />
     <Compile Include="Interfaces\IProductService.cs" />
     <Compile Include="Interfaces\IShopService.cs" />
+    <Compile Include="Services\DeliveryService.cs" />
     <Compile Include="Services\PandaService.cs" />
     <Compile Include="Services\ShopService.cs" />
     <Compile Include="Services\FileService.cs" />
