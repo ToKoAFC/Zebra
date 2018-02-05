@@ -61,6 +61,10 @@
     <Compile Include="Migrations\201802042355334_AddDeliveries.Designer.cs">
       <DependentUpon>201802042355334_AddDeliveries.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802052140290_addBarcode.cs" />
+    <Compile Include="Migrations\201802052140290_addBarcode.Designer.cs">
+      <DependentUpon>201802052140290_addBarcode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ZebraContext.cs" />
@@ -81,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802042355334_AddDeliveries.resx">
       <DependentUpon>201802042355334_AddDeliveries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802052140290_addBarcode.resx">
+      <DependentUpon>201802052140290_addBarcode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

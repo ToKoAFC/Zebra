@@ -5,6 +5,9 @@ namespace Zebra.ViewModels.View.AdminProducts
     public class VMAdminProductsCreate
     {
         public int ProductId { get; set; }
+        
+        [Display(Name="Kod kreskowy")]
+        public int Barcode { get; set; }
 
         [Display(Name = "Nazwa produktu")]
         [StringLength(25), Required]

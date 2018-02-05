@@ -62,6 +62,7 @@ namespace Zebra.Services
                 ProuductId = product.ProductId,
                 Name = product.Name,
                 Description = product.Description,
+                Barcode = product.Barcode,
                 BasePrice = product.BasePrice
             };
             _productAccess.SaveProduct(coreProduct, user.CompanyId);

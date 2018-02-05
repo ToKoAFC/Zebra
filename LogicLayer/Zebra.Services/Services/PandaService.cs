@@ -33,6 +33,7 @@ namespace Zebra.Services
                         Description = product.Description,
                         Name = product.Name,
                         ProductId = product.ProuductId,
+                        Barcode = product.Barcode,
                         DiscountPrice = _priceAccess.GetProductPrice(product.ProuductId)
                     });
                 }

@@ -63,6 +63,7 @@ namespace Zebra.Database.Access
                     Name = prod.Name,
                     Description = prod.Description,
                     ProuductId = prod.ProuductId,
+                    Barcode = prod.Barcode,
                     BasePrice = prod.BasePrice
                 })
                 .FirstOrDefault();
@@ -91,6 +92,7 @@ namespace Zebra.Database.Access
                 dbProduct.Name = product.Name;
                 dbProduct.Description = product.Description;
                 dbProduct.BasePrice = product.BasePrice;
+                dbProduct.Barcode = product.Barcode;
                 _context.SaveChanges();
                 return;
             }
@@ -98,7 +100,8 @@ namespace Zebra.Database.Access
             {
                 Name = product.Name,
                 Description = product.Description,
-                BasePrice = product.BasePrice
+                BasePrice = product.BasePrice,
+                Barcode = product.Barcode
             });
             _context.SaveChanges();
         }

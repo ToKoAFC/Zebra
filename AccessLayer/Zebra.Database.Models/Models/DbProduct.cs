@@ -24,6 +24,8 @@ namespace Zebra.Database.Models
 
         public bool IsDeleted { get; set; }
 
+        public int Barcode { get; set; }
+
         [Range(0,double.MaxValue)]
         public decimal BasePrice { get; set; }
         
