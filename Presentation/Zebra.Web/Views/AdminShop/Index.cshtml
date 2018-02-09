@@ -1,65 +1,40 @@
 ﻿@model Zebra.ViewModels.View.AdminCategory.VMAdminShopIndex
 
-@{
-    ViewBag.Title = "Index";
-}
 
-<h2>Index</h2>
+<div style="margin:30px">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.Shop.Name)</b></td>
+                <td>@Html.DisplayFor(model => model.Shop.Name)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.Shop.Phone)</b></td>
+                <td>@Html.DisplayFor(model => model.Shop.Phone)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.Shop.Email)</b></td>
+                <td>@Html.DisplayFor(model => model.Shop.Email)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.Shop.NIP)</b></td>
+                <td>@Html.DisplayFor(model => model.Shop.NIP)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.Shop.Regon)</b></td>
+                <td>@Html.DisplayFor(model => model.Shop.Regon)</td>
+            </tr>
+            <tr>
+                <td><b>@Html.DisplayNameFor(model => model.Shop.Localization.Address)</b></td>
+                <td>@Html.DisplayFor(model => model.Shop.Localization.Address)</td>
+            </tr>
 
-<div>
-    <h4>VMShop</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Shop.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Shop.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Shop.Phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Shop.Phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Shop.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Shop.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Shop.NIP)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Shop.NIP)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Shop.Regon)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Shop.Regon)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Shop.Localization.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Shop.Localization.Address)
-        </dd>
-
-    </dl>
+        </tbody>
+    </table>
 </div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")

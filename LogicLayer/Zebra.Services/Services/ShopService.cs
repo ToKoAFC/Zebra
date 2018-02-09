@@ -44,7 +44,7 @@ namespace Zebra.Services
                 City = model.Localization.City,
                 Country = model.Localization.Country,
                 Email = model.Email,
-                Latitude = model.Email,
+                Latitude = model.Localization.Latitude,
                 Longitude = model.Localization.Longitude,
                 Name = model.Name,
                 NIP = model.NIP,

@@ -52,7 +52,7 @@ namespace Zebra.Web.Controllers
         }
 
         [HttpGet]
-        [Route("panda/GetShopInfo")]
+        [Route("Product/GetShopInfo")]
         public HttpResponseMessage GetShopInfo()
         {
             try
@@ -67,7 +67,7 @@ namespace Zebra.Web.Controllers
         }
 
         [HttpGet]
-        [Route("panda/GetDeliveryInfo")]
+        [Route("Product/GetDeliveryInfo")]
         public HttpResponseMessage GetDeliveryInfo()
         {
             try
