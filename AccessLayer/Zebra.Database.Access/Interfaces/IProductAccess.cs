@@ -7,6 +7,7 @@ namespace Zebra.Database.Access.Interfaces
     {
         List<CoreProduct> GetCoreProduct();
         CoreProduct GetProduct(int produtId);
+        CoreProduct GetProductByBarcode(int barcode);
         List<CoreProduct> GetProducts();
         void SaveProduct(CoreProduct product, int? companyId);
         bool DeleteProduct(int productId);

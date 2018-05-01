@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -10,7 +11,7 @@ using Zebra.Web.Models;
 
 namespace Zebra.Web.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Administrator")]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -149,7 +150,7 @@ namespace Zebra.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new DbAppUser { UserName = model.Email, Email = model.Email };
+                var user = new DbAppUser { Id = Guid.NewGuid().ToString(), UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

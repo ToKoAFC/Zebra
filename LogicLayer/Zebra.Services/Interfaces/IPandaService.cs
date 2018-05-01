@@ -5,7 +5,7 @@ namespace Zebra.Services.Interfaces
 {
     public interface IPandaService
     {
-        List<int> GetProductsIds();
+        List<int> GetProductsBarCodes();
         List<PandaProductDetails> GetProductDetails(List<int> ids);
         PandaShopInfo GetShopInfo();
     }

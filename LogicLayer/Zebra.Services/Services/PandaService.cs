@@ -23,13 +23,13 @@ namespace Zebra.Services
             var result = new List<PandaProductDetails>();
             ids.ForEach(prod =>
             {
-                var product = _productAccess.GetProduct(prod);
+                var product = _productAccess.GetProductByBarcode(prod);
                 if (product != null)
                 {
                     result.Add(new PandaProductDetails
                     {
                         BasePrice = product.BasePrice,
-                        Categories = product.Categories.Select(x => x.CategoryName).ToList(),
+                        Categories = product.Categories == null ? new List<string>() : product.Categories.Select(x => x.CategoryName).ToList(),
                         Description = product.Description,
                         Name = product.Name,
                         ProductId = product.ProuductId,
@@ -41,10 +41,10 @@ namespace Zebra.Services
             return result;
         }
 
-        public List<int> GetProductsIds()
+        public List<int> GetProductsBarCodes()
         {
             var coreProducts = _productAccess.GetCoreProduct();
-            return coreProducts.Select(p => p.ProuductId).ToList();
+            return coreProducts.Select(p => p.Barcode).ToList();
         }
 
         public PandaShopInfo GetShopInfo()

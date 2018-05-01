@@ -19,15 +19,13 @@ namespace Zebra.Web.Controllers
             _pandaService = pandaService;
             _deliveryService = deliveryService;
         }
-
         [HttpPost]
         [Route("Product/GetProductDetails")]
-        public HttpResponseMessage GetProductDetails([FromBody]List<int> ids)
+        public HttpResponseMessage GetProductDetails([FromBody]GetProductDetailsRequest request)
         {
             try
             {
-                ids.Add(1);ids.Add(2);
-                var products = _pandaService.GetProductDetails(ids);
+                var products = _pandaService.GetProductDetails(request.ids);
                 return Request.CreateResponse(HttpStatusCode.OK, JsonResponse.CreateResponse<List<PandaProductDetails>>(products));
             }
             catch (Exception exc)
@@ -37,12 +35,12 @@ namespace Zebra.Web.Controllers
         }
 
         [HttpGet]
-        [Route("Product/GetProductsIds")]
-        public HttpResponseMessage GetProductsIds()
+        [Route("Product/GetProductsBarCodes")]
+        public HttpResponseMessage GetProductsBarCodes()
         {
             try
             {
-                var productsId = _pandaService.GetProductsIds();
+                var productsId = _pandaService.GetProductsBarCodes();
                 return Request.CreateResponse(HttpStatusCode.OK, JsonResponse.CreateResponse<List<int>>(productsId));
             }
             catch (Exception exc)

@@ -25,6 +25,7 @@ namespace Zebra.Database.Access
                     ProuductId = prod.ProuductId,
                     BasePrice = prod.BasePrice,
                     HasImage = prod.Files.Any(),
+                    Barcode = prod.Barcode,
                     FileName = prod.Files.Any() ? prod.Files.FirstOrDefault().FileName : "BaseProduct.jpg",
                     Categories = prod.Categories.Select(cat => new CoreCategory
                     {
@@ -70,6 +71,21 @@ namespace Zebra.Database.Access
             return product;
         }
 
+        public CoreProduct GetProductByBarcode(int barcode)
+        {
+            var product = _context.Products
+                .Where(p => p.Barcode == barcode)
+                .Select(prod => new CoreProduct
+                {
+                    Name = prod.Name,
+                    Description = prod.Description,
+                    ProuductId = prod.ProuductId,
+                    Barcode = prod.Barcode,
+                    BasePrice = prod.BasePrice                    
+                })
+                .FirstOrDefault();
+            return product;
+        }
         public List<CoreProduct> GetProducts()
         {
             var products = _context.Products
@@ -78,7 +94,8 @@ namespace Zebra.Database.Access
                     Name = prod.Name,
                     Description = prod.Description,
                     ProuductId = prod.ProuductId,
-                    BasePrice = prod.BasePrice
+                    BasePrice = prod.BasePrice,
+                    Barcode = prod.Barcode
                 })
                 .ToList();
             return products;

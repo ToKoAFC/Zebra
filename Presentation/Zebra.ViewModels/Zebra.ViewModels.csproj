@@ -73,6 +73,7 @@
     <Compile Include="Models\Common\VMCategory.cs" />
     <Compile Include="Models\PandaModels\BaseResponse.cs" />
     <Compile Include="Models\PandaModels\JsonResponse.cs" />
+    <Compile Include="Models\PandaModels\GetProductDetailsRequest.cs" />
     <Compile Include="Models\PandaModels\PandaShopInfo.cs" />
     <Compile Include="Models\PandaModels\PandaProductDetails.cs" />
     <Compile Include="Models\View\AdminShop\VMAdminShopIndex.cs" />

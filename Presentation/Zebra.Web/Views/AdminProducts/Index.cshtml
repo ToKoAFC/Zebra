@@ -1,5 +1,4 @@
 ﻿@model Zebra.ViewModels.View.AdminProducts.VMAdminProductsIndex
-
 <div style="margin:30px">
     <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
         <thead>
@@ -34,14 +33,18 @@
                     else
                     {
                         <td><a href="@Url.Action("UploadFile",new { productId = product.ProductId})"><i style="color:gray" class="material-icons">image</i></a></td>
-
                     }
                     <td><a href="@Url.Action("Delete",new { productId = product.ProductId})"><i class="material-icons" style="color:red">delete</i></a></td>
                 </tr>
             }
-
         </tbody>
     </table>
 </div>
+<a href="@Url.Action("Create")" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" 
+   style="top: auto;right: 50px;bottom: 50px;left: auto;position: fixed;">
+    <i class="material-icons" style="color:white">add</i></a>
 
-<a href="@Url.Action("Create")" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="top: auto;right: 50px;bottom: 50px;left: auto;position: fixed;"><i class="material-icons" style="color:white">add</i></a>
+
+ 
+
+

@@ -27,6 +27,7 @@ namespace Zebra.Services
                 Description = p.Description,
                 Name = p.Name,
                 ProductId = p.ProuductId,
+                Barcode = p.Barcode,
                 FileName = p.FileName,
                 HasImage = p.HasImage,
                 BasePrice = p.BasePrice == 0 ? "---" : $"{p.BasePrice} zł",
@@ -34,8 +35,29 @@ namespace Zebra.Services
                 {
                     CategoryId = cat.CategoryId,
                     CategoryName = cat.CategoryName
+
                 }).ToList()
             }).ToList();
+        }
+
+        public VMProductBaseInfo GetProduct(int productId)
+        {
+            var product = _productAccess.GetProduct(productId);
+            return new VMProductBaseInfo
+            {
+                Description = product.Description,
+                Name = product.Name,
+                ProductId = product.ProuductId,
+                Barcode = product.Barcode,
+                FileName = product.FileName,
+                HasImage = product.HasImage,
+                BasePrice = product.BasePrice == 0 ? "---" : $"{product.BasePrice} zł",
+                Categories = product.Categories.Select(cat => new VMCategory
+                {
+                    CategoryId = cat.CategoryId,
+                    CategoryName = cat.CategoryName
+                }).ToList()
+            };
         }
 
         public VMAdminProductsCreate GetProductForEdition(int productId)
@@ -48,8 +70,9 @@ namespace Zebra.Services
             return new VMAdminProductsCreate
             {
                 ProductId = coreProd.ProuductId,
-                Name = coreProd.Name,                
+                Name = coreProd.Name,
                 BasePrice = coreProd.BasePrice,
+                Barcode = coreProd.Barcode,
                 Description = coreProd.Description
             };
         }
